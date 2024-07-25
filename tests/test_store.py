@@ -42,3 +42,16 @@ class StoreTests(unittest.TestCase):
         self.assertFalse(result['changed'])
         self.assertEqual(self.store.generation(),before)
         with self.assertRaises(Missing):self.store.get_document('absent')
+
+    def test_each_revision_persists_exact_source_chunks(self):
+        self.store.put_document(document('Mira owns Atlas.\n' * 90))
+        rows = self.store.chunks('atlas')
+        source = self.store.get_document('atlas')['text']
+        self.assertGreater(len(rows),1)
+        for row in rows:
+            self.assertEqual(row['text'],source[row['start']:row['end']])
+            self.assertEqual(self.store.get_chunk(row['id'])['document_id'],'atlas')
+        old_id = rows[0]['id']
+        self.store.put_document(document('Omar owns Atlas.'),expected_revision=1)
+        self.assertEqual(self.store.chunks('atlas')[0]['revision'],2)
+        with self.assertRaises(Missing):self.store.get_chunk(old_id)

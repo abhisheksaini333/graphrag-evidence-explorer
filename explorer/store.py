@@ -4,6 +4,7 @@ from pathlib import Path
 import sqlite3
 import time
 from .domain import Invalid, identifier
+from .chunking import chunk_document
 
 
 class Conflict(Invalid):
@@ -25,6 +26,11 @@ CREATE TABLE IF NOT EXISTS revisions (
  document_id TEXT NOT NULL REFERENCES documents(id), revision INTEGER NOT NULL,
  title TEXT NOT NULL, text TEXT NOT NULL, content_hash TEXT NOT NULL,
  PRIMARY KEY (document_id,revision)
+);
+CREATE TABLE IF NOT EXISTS chunks (
+ id TEXT PRIMARY KEY, document_id TEXT NOT NULL, revision INTEGER NOT NULL,
+ start INTEGER NOT NULL, end INTEGER NOT NULL, text TEXT NOT NULL,
+ FOREIGN KEY(document_id,revision) REFERENCES revisions(document_id,revision)
 );
 """
 
@@ -83,6 +89,8 @@ class Store:
             revision = old['revision'] + 1 if old else 1
             db.execute("INSERT INTO documents VALUES (?,?,0,?) ON CONFLICT(id) DO UPDATE SET revision=excluded.revision,deleted=0,updated_at=excluded.updated_at", (document.id,revision,self.clock()))
             db.execute("INSERT INTO revisions VALUES (?,?,?,?,?)", (document.id,revision,document.title,document.text,document.content_hash))
+            for chunk in chunk_document(document.id, revision, document.text):
+                db.execute("INSERT INTO chunks VALUES (?,?,?,?,?,?)", (chunk.id,chunk.document_id,chunk.revision,chunk.start,chunk.end,chunk.text))
             self._bump_generation(db)
             return {'id':document.id,'revision':revision,'changed':True}
 
@@ -101,3 +109,20 @@ class Store:
         with self.connect() as db:
             rows = db.execute("SELECT d.id,d.revision,d.updated_at,r.title,r.content_hash,length(r.text) AS characters FROM documents d JOIN revisions r ON r.document_id=d.id AND r.revision=d.revision WHERE d.deleted=0 ORDER BY d.id")
             return [dict(row) for row in rows]
+
+    def chunks(self, document_id=None):
+        params = ()
+        condition = ""
+        if document_id is not None:
+            identifier(document_id)
+            condition, params = " AND d.id=?", (document_id,)
+        with self.connect() as db:
+            rows = db.execute("SELECT c.*,r.title FROM chunks c JOIN documents d ON d.id=c.document_id AND d.revision=c.revision JOIN revisions r ON r.document_id=c.document_id AND r.revision=c.revision WHERE d.deleted=0" + condition + " ORDER BY c.document_id,c.start", params)
+            return [dict(row) for row in rows]
+
+    def get_chunk(self, chunk_id):
+        with self.connect() as db:
+            row = db.execute("SELECT c.*,r.title FROM chunks c JOIN documents d ON d.id=c.document_id AND d.revision=c.revision JOIN revisions r ON r.document_id=c.document_id AND r.revision=c.revision WHERE c.id=? AND d.deleted=0", (chunk_id,)).fetchone()
+            if not row:
+                raise Missing("Source passage changed or is unavailable")
+            return dict(row)
