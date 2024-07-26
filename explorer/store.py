@@ -96,6 +96,8 @@ class Store:
 
     def get_document(self, document_id, revision=None):
         identifier(document_id)
+        if revision is not None and (type(revision) is not int or revision < 1):
+            raise Invalid("Source revision must be a positive integer")
         with self.connect() as db:
             row = db.execute("SELECT * FROM documents WHERE id=? AND deleted=0", (document_id,)).fetchone()
             if not row:
@@ -126,3 +128,18 @@ class Store:
             if not row:
                 raise Missing("Source passage changed or is unavailable")
             return dict(row)
+
+    def delete_document(self, document_id, expected_revision):
+        identifier(document_id)
+        if type(expected_revision) is not int or expected_revision < 1:
+            raise Invalid("Expected revision must be a positive integer")
+        with self.transaction() as db:
+            row = db.execute("SELECT * FROM documents WHERE id=?", (document_id,)).fetchone()
+            if not row:
+                raise Missing("Document is unavailable")
+            if row['revision'] != expected_revision:
+                raise Conflict("Document changed; reload before deleting")
+            if not row['deleted']:
+                db.execute("UPDATE documents SET deleted=1,updated_at=? WHERE id=?", (self.clock(),document_id))
+                self._bump_generation(db)
+            return {'id':document_id,'revision':expected_revision,'deleted':True}

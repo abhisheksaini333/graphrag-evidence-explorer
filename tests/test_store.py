@@ -55,3 +55,23 @@ class StoreTests(unittest.TestCase):
         self.store.put_document(document('Omar owns Atlas.'),expected_revision=1)
         self.assertEqual(self.store.chunks('atlas')[0]['revision'],2)
         with self.assertRaises(Missing):self.store.get_chunk(old_id)
+
+    def test_tombstone_denies_live_sources_and_restoration_is_a_new_revision(self):
+        self.store.put_document(document())
+        chunk_id = self.store.chunks('atlas')[0]['id']
+        with self.assertRaises(Conflict):self.store.delete_document('atlas',9)
+        before = self.store.generation()
+        self.store.delete_document('atlas',1)
+        self.assertGreater(self.store.generation(),before)
+        self.assertEqual(self.store.list_documents(),[])
+        self.assertEqual(self.store.chunks(),[])
+        with self.assertRaises(Missing):self.store.get_chunk(chunk_id)
+        with self.assertRaises(Missing):self.store.get_document('atlas',revision=1)
+        restored = self.store.put_document(document(),expected_revision=1)
+        self.assertEqual(restored['revision'],2)
+        self.assertNotEqual(self.store.chunks('atlas')[0]['id'],chunk_id)
+
+    def test_invalid_revision_values_do_not_alias_the_current_source(self):
+        self.store.put_document(document())
+        for value in [0,True,-1,'1']:
+            with self.assertRaises(ValueError):self.store.get_document('atlas',revision=value)
