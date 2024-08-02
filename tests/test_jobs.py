@@ -52,3 +52,21 @@ class JobTests(unittest.TestCase):
         self.assertIsNone(self.jobs.claim('four'))
         self.assertEqual(self.jobs.get(job['id'])['status'],'failed')
         self.assertEqual(self.jobs.get(job['id'])['error'],'lease_exhausted')
+
+    def test_cancellation_revokes_lease_and_retry_keeps_job_identity(self):
+        job = self.jobs.enqueue('atlas','triples-v1')
+        a = self.jobs.claim('worker',lease_seconds=20)
+        self.jobs.cancel(job['id'])
+        with self.assertRaises(Conflict):self.jobs.finish(a['id'],a['lease_token'],'complete')
+        self.assertEqual(self.jobs.get(job['id'])['status'],'cancelled')
+        self.assertEqual(self.jobs.retry(job['id'])['id'],job['id'])
+        self.assertEqual(self.jobs.claim('second')['attempt'],2)
+
+    def test_retry_refuses_active_completed_and_obsolete_jobs(self):
+        job = self.jobs.enqueue('atlas','triples-v1')
+        with self.assertRaises(Conflict):self.jobs.retry(job['id'])
+        claim = self.jobs.claim('worker')
+        self.jobs.finish(claim['id'],claim['lease_token'],'complete')
+        with self.assertRaises(Conflict):self.jobs.retry(job['id'])
+        self.store.delete_document('atlas',1)
+        with self.assertRaises(Conflict):self.jobs.retry(job['id'])

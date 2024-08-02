@@ -84,3 +84,21 @@ class JobQueue:
         with self.store.transaction() as db:
             self.require_owner(db,job_id,token)
             db.execute("UPDATE jobs SET status=?,error=?,lease_token=NULL,lease_until=0 WHERE id=?", (status,error,job_id))
+
+    def cancel(self, job_id):
+        with self.store.transaction() as db:
+            row = db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone()
+            if not row:
+                raise Missing("Index job is unavailable")
+            if row['status'] not in ('queued','running','cancelled'):
+                raise Conflict("Only pending indexing can be cancelled")
+            db.execute("UPDATE jobs SET status='cancelled',lease_token=NULL,lease_until=0,error='operator_cancelled' WHERE id=?", (job_id,))
+        return self.get(job_id)
+
+    def retry(self, job_id):
+        with self.store.transaction() as db:
+            row = db.execute("SELECT j.* FROM jobs j JOIN documents d ON d.id=j.document_id AND d.revision=j.revision WHERE j.id=? AND d.deleted=0", (job_id,)).fetchone()
+            if not row or row['status'] not in ('failed','cancelled') or row['attempt'] >= 3:
+                raise Conflict("Retry requires a current failed/cancelled job with attempts remaining")
+            db.execute("UPDATE jobs SET status='queued',error=NULL WHERE id=?", (job_id,))
+        return self.get(job_id)
