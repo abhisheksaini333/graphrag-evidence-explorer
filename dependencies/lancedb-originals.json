@@ -1,0 +1,110 @@
+{
+  "darwin-arm64": {
+    "description": null,
+    "dependencies": [
+      "depends"
+    ],
+    "distribution_type": "conda",
+    "basename": "osx-arm64/lancedb-0.9.0-py310h947b723_0.conda",
+    "attrs": {
+      "operatingsystem": "darwin",
+      "machine": "arm64",
+      "target-triplet": "arm64-any-darwin",
+      "has_prefix": false,
+      "subdir": "osx-arm64",
+      "arch": "arm64",
+      "build": "py310h947b723_0",
+      "build_number": 0,
+      "constrains": [
+        "__osx >=11.0"
+      ],
+      "depends": [
+        "__osx >=11.0",
+        "attrs >=21.3.0",
+        "cachetools",
+        "deprecation",
+        "overrides >=0.7",
+        "packaging",
+        "pydantic >=1.10",
+        "pylance 0.13.0",
+        "python >=3.10,<3.11.0a0",
+        "python >=3.10,<3.11.0a0 *_cpython",
+        "python_abi 3.10.* *_cp310",
+        "ratelimiter >=1.0,<2.dev0",
+        "requests >=2.31.0",
+        "retry >=0.9.2",
+        "tqdm >=4.27.0"
+      ],
+      "license": "Apache-2.0",
+      "platform": "osx",
+      "timestamp": 1720688054560
+    },
+    "upload_time": "2024-07-11 08:55:09.527000+00:00",
+    "md5": "fd9e24c7ae2a23f1775f3aebf4bbc2f4",
+    "sha256": "3e93138577543e8f6d25348f9108ae846ab7272bc8c7cd9ba2d15c8ca7265c7c",
+    "size": 12832875,
+    "full_name": "conda-forge/lancedb/0.9.0/osx-arm64/lancedb-0.9.0-py310h947b723_0.conda",
+    "download_url": "//api.anaconda.org/download/conda-forge/lancedb/0.9.0/osx-arm64/lancedb-0.9.0-py310h947b723_0.conda",
+    "type": "conda",
+    "version": "0.9.0",
+    "ndownloads": 459,
+    "owner": "conda-forge",
+    "labels": [
+      "main"
+    ]
+  },
+  "linux-x86_64": {
+    "attrs": {
+      "arch": "x86_64",
+      "build": "py310h42e942d_0",
+      "build_number": 0,
+      "constrains": [
+        "__glibc >=2.17"
+      ],
+      "depends": [
+        "__glibc >=2.17,<3.0.a0",
+        "attrs >=21.3.0",
+        "cachetools",
+        "deprecation",
+        "libgcc-ng >=12",
+        "overrides >=0.7",
+        "packaging",
+        "pydantic >=1.10",
+        "pylance 0.13.0",
+        "python >=3.10,<3.11.0a0",
+        "python_abi 3.10.* *_cp310",
+        "ratelimiter >=1.0,<2.dev0",
+        "requests >=2.31.0",
+        "retry >=0.9.2",
+        "tqdm >=4.27.0"
+      ],
+      "has_prefix": false,
+      "license": "Apache-2.0",
+      "machine": "x86_64",
+      "operatingsystem": "linux",
+      "platform": "linux",
+      "subdir": "linux-64",
+      "target-triplet": "x86_64-any-linux",
+      "timestamp": 1720687307138
+    },
+    "basename": "linux-64/lancedb-0.9.0-py310h42e942d_0.conda",
+    "dependencies": [
+      "depends"
+    ],
+    "description": null,
+    "distribution_type": "conda",
+    "download_url": "//api.anaconda.org/download/conda-forge/lancedb/0.9.0/linux-64/lancedb-0.9.0-py310h42e942d_0.conda",
+    "full_name": "conda-forge/lancedb/0.9.0/linux-64/lancedb-0.9.0-py310h42e942d_0.conda",
+    "labels": [
+      "main"
+    ],
+    "md5": "d7afbc59e81469196ce55bba96839a95",
+    "ndownloads": 2723,
+    "owner": "conda-forge",
+    "sha256": "0a63583cf8ac7d58161f3ad68ecf7f681bf57a77eb8fe59c7725b86ef45b27c2",
+    "size": 14647087,
+    "type": "conda",
+    "upload_time": "2024-07-11 08:44:55.236000+00:00",
+    "version": "0.9.0"
+  }
+}
