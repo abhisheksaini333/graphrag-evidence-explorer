@@ -1,0 +1,107 @@
+{
+  "generation": {
+    "model": "Qwen/Qwen2-0.5B-Instruct",
+    "revision": "c291d6fce4804a1d39305f388dd32897d1f7acc4",
+    "revision_date": "2024-06-06T14:33:10Z",
+    "files": [
+      {
+        "file": "config.json",
+        "sha256": "168aa1bd401abc3bc262ba15ba4e499627a8b4e006e9d050b47c22de20660185",
+        "bytes": 659,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/config.json"
+      },
+      {
+        "file": "generation_config.json",
+        "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+        "bytes": 242,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/generation_config.json"
+      },
+      {
+        "file": "model.safetensors",
+        "sha256": "130282af0dfa9fe5840737cc49a0d339d06075f83c5a315c3372c9a0740d0b96",
+        "bytes": 988097824,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/model.safetensors"
+      },
+      {
+        "file": "tokenizer.json",
+        "sha256": "f7c9b2dba4a296b1aa76c16a34b8225c0c118978400d4bb66bff0902d702f5b8",
+        "bytes": 7028015,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/tokenizer.json"
+      },
+      {
+        "file": "tokenizer_config.json",
+        "sha256": "482bd979881423375ca5414e4e0d94cd7c5349dbb17fffd46b4d36d71e62a1bc",
+        "bytes": 1287,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/tokenizer_config.json"
+      },
+      {
+        "file": "merges.txt",
+        "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+        "bytes": 1671839,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/merges.txt"
+      },
+      {
+        "file": "vocab.json",
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "bytes": 2776833,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/vocab.json"
+      },
+      {
+        "file": "README.md",
+        "sha256": "d98e5f2e83f2999e1f529afdc2ee549d04f0447d6d26bb42945349db09505d56",
+        "bytes": 3537,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/README.md"
+      },
+      {
+        "file": "LICENSE",
+        "sha256": "c156170b718ec29139d3653d40ed1986fd92fb7e0959b5c71f3c48f62e6636f4",
+        "bytes": 11344,
+        "url": "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct/resolve/c291d6fce4804a1d39305f388dd32897d1f7acc4/LICENSE"
+      }
+    ],
+    "directory": "qwen2-0.5b-instruct"
+  },
+  "embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "7dbbc90392e2f80f3d3c277d6e90027e55de9125",
+    "directory": "all-MiniLM-L6-v2",
+    "files": [
+      {
+        "file": "config.json",
+        "bytes": 612,
+        "sha256": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/config.json"
+      },
+      {
+        "file": "pytorch_model.bin",
+        "bytes": 90888945,
+        "sha256": "c3a85f238711653950f6a79ece63eb0ea93d76f6a6284be04019c53733baf256",
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/pytorch_model.bin"
+      },
+      {
+        "file": "tokenizer_config.json",
+        "bytes": 350,
+        "sha256": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/tokenizer_config.json"
+      },
+      {
+        "file": "special_tokens_map.json",
+        "bytes": 112,
+        "sha256": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/special_tokens_map.json"
+      },
+      {
+        "file": "tokenizer.json",
+        "bytes": 466247,
+        "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/tokenizer.json"
+      },
+      {
+        "file": "vocab.txt",
+        "bytes": 231508,
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/vocab.txt"
+      }
+    ]
+  }
+}
