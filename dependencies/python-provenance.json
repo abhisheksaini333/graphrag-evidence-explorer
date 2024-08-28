@@ -84,8 +84,6 @@
         "first_upload": "2024-07-11T08:55:09.527000Z",
         "source": "https://api.anaconda.org/download/conda-forge/lancedb/0.9.0/osx-arm64/lancedb-0.9.0-py310h947b723_0.conda",
         "original_conda_sha256": "3e93138577543e8f6d25348f9108ae846ab7272bc8c7cd9ba2d15c8ca7265c7c",
-        "local_wheel": "/Users/abhishek/Documents/datavedam/docs/plans/github-portfolio-2023-2024/execution/shared-runtime/lancedb-0.9.0-cp38-abi3-macosx_11_0_arm64.whl",
-        "local_wheel_sha256": "e1c1361cc20cb9785028a1c827a710c5d9f49ffcd25548c0bc947087a172df52",
         "method": "Repackaged original site-packages from checksum-verified conda artifact; original package metadata and native binary retained."
       }
     },
