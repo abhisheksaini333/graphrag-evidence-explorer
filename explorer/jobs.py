@@ -84,6 +84,8 @@ class JobQueue:
         with self.store.transaction() as db:
             self.require_owner(db,job_id,token)
             db.execute("UPDATE jobs SET status=?,error=?,lease_token=NULL,lease_until=0 WHERE id=?", (status,error,job_id))
+            if status == "complete":
+                self.store._bump_generation(db)
 
     def cancel(self, job_id):
         with self.store.transaction() as db:
