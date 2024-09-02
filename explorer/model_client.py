@@ -25,6 +25,13 @@ class ModelClient:
         except (OSError,ValueError) as exc:
             raise ModelUnavailable('Local model request failed; inspect model readiness and request limits') from exc
 
+    def health(self):
+        try:
+            with urllib.request.urlopen(self.url+"/health",timeout=5) as response:
+                return json.loads(response.read(65536))
+        except (OSError,ValueError) as exc:
+            raise ModelUnavailable("Local model is not ready") from exc
+
     def generate(self,prompt,max_new_tokens=192):
         return self.post('/generate',{'prompt':prompt,'max_new_tokens':max_new_tokens})
 

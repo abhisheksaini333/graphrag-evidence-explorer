@@ -39,9 +39,11 @@ async def extract_graph(source,invoke):
         return LLMOutput(output=graph_records(parsed['accepted']))
 
     extractor = GraphExtractor(completion,prompt=EXTRACTION_PROMPT,max_gleanings=0,
-                               on_error=lambda error,*args:errors.append(type(error).__name__))
+                               on_error=lambda error,*args:errors.append(error))
     result = await extractor([source],{'entity_types':['entity']})
-    if errors or not captured:
+    if errors:
+        raise errors[0]
+    if not captured:
         raise Invalid('Model extraction failed validation; no graph result was published')
     graph = result.output
     return {**captured[0],
