@@ -38,5 +38,8 @@ def parse_triples(raw, source):
         if support is None:
             rejected.append({'triple':values,'reason':'no_matching_source_clause'})
             continue
+        if re.search(r"\b(no|not|never|cannot|without|may|might|could|if|unless)\b|n't\b",support.group(),re.IGNORECASE):
+            rejected.append({'triple':values,'reason':'nonaffirmative_source_clause'})
+            continue
         accepted.append({**values,'start':support.start(),'end':support.end(),'support':support.group()})
     return {'accepted':accepted,'rejected':rejected}

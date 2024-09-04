@@ -30,3 +30,8 @@ class TripleTests(unittest.TestCase):
     def test_duplicate_triples_do_not_inflate_evidence(self):
         item={'subject':'Mira','relation':'owns','object':'Atlas'}
         self.assertEqual(len(parse_triples(json.dumps([item,item]),'Mira owns Atlas.')['accepted']),1)
+
+    def test_negated_uncertain_and_conditional_clauses_are_not_positive_claims(self):
+        raw=json.dumps([{'subject':'Boreal','relation':'uses','object':'Cedar'}])
+        for source in ['Boreal never uses Cedar.', 'Boreal may use Cedar, but normally uses Pine.', 'If Boreal uses Cedar, restart Atlas.', 'Boreal does not uses Cedar.']:
+            self.assertEqual(parse_triples(raw,source)['accepted'],[],source)
