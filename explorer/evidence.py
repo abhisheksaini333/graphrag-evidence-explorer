@@ -36,6 +36,8 @@ class EvidenceStore:
         self.jobs,self.store = jobs,jobs.store
         with self.store.connect() as db:
             db.executescript(SCHEMA)
+            from .corrections import SCHEMA as correction_schema
+            db.executescript(correction_schema)
 
     def publish(self,job_id,token,chunk_id,result,vector):
         vector_json = json.dumps(normalized_vector(vector),allow_nan=False)
@@ -82,6 +84,11 @@ class EvidenceStore:
                 item = dict(row)
                 item['vector'] = json.loads(item['vector'])
                 vectors.append(item)
+            rejected = {row[0] for row in db.execute("SELECT a.chunk_id FROM claims a JOIN corrections x ON x.claim_id=a.id WHERE x.sequence=(SELECT MAX(c.sequence) FROM corrections c WHERE c.claim_id=a.id) AND x.status='rejected'")}
+            # Exclude the entire disputed passage from every query mode. Restoring
+            # one claim does not restore a passage with another rejected claim.
+            claims = [claim for claim in claims if claim['chunk_id'] not in rejected]
+            vectors = [vector for vector in vectors if vector['chunk_id'] not in rejected]
             db.commit()
             return {'generation':generation,'claims':claims,'vectors':vectors}
 
