@@ -1,0 +1,14 @@
+[
+ {"id":"lumen","title":"Lumen service ownership","text":"Iris owns Lumen. Lumen depends on River."},
+ {"id":"river","title":"River data pipeline","text":"River uses Maple. Leon maintains Maple."},
+ {"id":"maple","title":"Maple storage contract","text":"Maple stores invoices. Maple replicates to Birch."},
+ {"id":"birch","title":"Birch recovery ownership","text":"Nia owns Birch. Birch stores backups."},
+ {"id":"harbor","title":"Harbor billing workflow","text":"Oren owns Harbor. Harbor depends on River."},
+ {"id":"cedar","title":"Cedar monitoring","text":"Cedar monitors Lumen. Cedar monitors Harbor."},
+ {"id":"meadow","title":"Meadow analytics","text":"Uma owns Meadow. Meadow reads Birch."},
+ {"id":"quartz","title":"Quartz exports","text":"Quartz exports invoices. Kai maintains Quartz."},
+ {"id":"harbor-alternate","title":"Unresolved Harbor ownership memo","text":"Sana owns Harbor. This memo conflicts with the Harbor billing workflow."},
+ {"id":"restriction","title":"Restricted routes","text":"River never writes to Quartz. Lumen may use Quartz after a future migration."},
+ {"id":"storm","title":"Storm archival service","text":"Zoe owns Storm. Storm archives receipts."},
+ {"id":"summit","title":"Summit receipt processor","text":"Summit consumes receipts. Summit depends on Storm."}
+]

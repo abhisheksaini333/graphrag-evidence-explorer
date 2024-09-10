@@ -1,0 +1,14 @@
+[
+ {"id":"q01","question":"Who owns Lumen?","required_docs":["lumen"],"answer_terms":["Iris"],"kind":"direct"},
+ {"id":"q02","question":"Which database does River use?","required_docs":["river"],"answer_terms":["Maple"],"kind":"direct"},
+ {"id":"q03","question":"Who maintains the database used by the service that Lumen depends on?","required_docs":["lumen","river"],"answer_terms":["Leon","Maple"],"kind":"multihop"},
+ {"id":"q04","question":"Where are Maple replicas stored, and who owns that destination?","required_docs":["maple","birch"],"answer_terms":["Birch","Nia"],"kind":"multihop"},
+ {"id":"q05","question":"Which services depend on River?","required_docs":["lumen","harbor"],"answer_terms":["Lumen","Harbor"],"kind":"global"},
+ {"id":"q06","question":"Who owns Harbor? Report all conflicting owners.","required_docs":["harbor","harbor-alternate"],"answer_terms":["Oren","Sana"],"kind":"contradiction"},
+ {"id":"q07","question":"Which services does Cedar monitor?","required_docs":["cedar"],"answer_terms":["Lumen","Harbor"],"kind":"global"},
+ {"id":"q08","question":"Who maintains Quartz?","required_docs":["quartz"],"answer_terms":["Kai"],"kind":"direct"},
+ {"id":"q09","question":"Who owns the service that Summit depends on?","required_docs":["summit","storm"],"answer_terms":["Zoe","Storm"],"kind":"multihop"},
+ {"id":"q10","question":"Who owns Neptune?","required_docs":[],"answer_terms":[],"kind":"abstention"},
+ {"id":"q11","question":"What is Lumen's monthly cloud bill?","required_docs":[],"answer_terms":[],"kind":"abstention"},
+ {"id":"q12","question":"Does River write to Quartz?","required_docs":["restriction"],"answer_terms":["never"],"kind":"negation"}
+]
