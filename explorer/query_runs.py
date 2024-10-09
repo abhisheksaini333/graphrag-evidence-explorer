@@ -60,7 +60,7 @@ class QueryRuns:
             if not row or row['status']!='running':raise Conflict('Query already finalized')
             generation=db.execute("SELECT value FROM metadata WHERE key='generation'").fetchone()[0]
             status='stale' if generation!=row['generation'] else 'failed' if error else 'complete'
-            db.execute('UPDATE query_runs SET status=?,result=?,error=? WHERE id=?',(status,raw if status=='complete' else None,error,run_id))
+            db.execute('UPDATE query_runs SET status=?,result=?,error=? WHERE id=?',(status,raw if status in ('complete','failed') else None,error,run_id))
         return self.get(run_id)
 
     def get(self,run_id):

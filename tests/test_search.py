@@ -39,3 +39,10 @@ class SearchTests(unittest.TestCase):
         result=service.query('Who owns Atlas?','local')
         self.assertEqual(result['status'],'stale');self.assertIsNone(result['result'])
         self.assertTrue(all(c['response'] is None for c in result['calls']))
+    def test_invalid_model_answer_retains_retrieval_evidence_without_publishing_text(self):
+        service=self.prepared()
+        service.model.generate=lambda *a,**k:{'text':'Uncited hallucination','input_tokens':10,'output_tokens':4}
+        result=service.query('Who owns Atlas?','vector')
+        self.assertEqual(result['status'],'failed')
+        self.assertIsNone(result['result']['answer'])
+        self.assertEqual(result['result']['passages'][0]['document_id'],'atlas')

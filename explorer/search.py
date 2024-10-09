@@ -53,6 +53,7 @@ class Search:
         snapshot=self.evidence.snapshot(self.profile)
         run=self.runs.start(mode,question,snapshot['generation'])
         start=time.monotonic()
+        context={'generation':snapshot['generation'],'passages':[],'context':''}
         try:
             call=self.runs.reserve(run['id'],'embed',len(question.encode())+32)
             embedding=self.model.embed([question]);self.runs.complete_call(call,embedding)
@@ -78,4 +79,4 @@ class Search:
             return self.runs.finish(run['id'],{**answer,**context,'mode':mode,'seconds':time.monotonic()-start,'framework':'graphrag-0.1.1' if mode!='vector' else 'cosine-baseline'})
         except Exception as error:
             code=('corpus_changed' if isinstance(error,Conflict) else 'budget_exhausted' if isinstance(error,QueryBudgetExceeded) else 'model_unavailable' if isinstance(error,ModelUnavailable) else 'answer_contract_failed' if isinstance(error,(Invalid,ValueError)) else 'query_failed')
-            return self.runs.finish(run['id'],None,error=code)
+            return self.runs.finish(run['id'],{**context,'answer':None,'mode':mode,'seconds':time.monotonic()-start},error=code)
