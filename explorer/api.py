@@ -115,8 +115,7 @@ def create_server(store,model,host='127.0.0.1',port=8089,static=None):
                 if path=='/api/index':
                     calls,tokens=value.get('max_calls',32),value.get('max_tokens',65536)
                     if type(calls) is not int or not 1<=calls<=128 or type(tokens) is not int or not 1<=tokens<=262144:raise Invalid('Index budget is outside the supported limits')
-                    job=jobs.enqueue(value['document_id'],PROFILE)
-                    if not ModelBudget(jobs).usage(job['id']).get('calls',0):ModelBudget(jobs).configure(job['id'],calls,tokens)
+                    job=jobs.enqueue(value['document_id'],PROFILE,budget=(calls,tokens))
                     return 202,public_job(job)
                 if path.startswith('/api/jobs/'):
                     parts=path.split('/');action=parts[-1];job_id=parts[-2]

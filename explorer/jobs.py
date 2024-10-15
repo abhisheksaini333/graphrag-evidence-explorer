@@ -29,14 +29,23 @@ class JobQueue:
         with store.connect() as db:
             db.executescript(SCHEMA)
 
-    def enqueue(self, document_id, profile):
+    def enqueue(self, document_id, profile, budget=None):
         bounded_text(profile, "Index profile", 160)
+        if budget is not None:
+            from .budget import ModelBudget,positive_int
+            positive_int(budget[0],128,'Call budget');positive_int(budget[1],262144,'Token budget')
+            ModelBudget(self)
         with self.store.transaction() as db:
             doc = db.execute("SELECT * FROM documents WHERE id=? AND deleted=0", (document_id,)).fetchone()
             if not doc:
                 raise Missing("Document is unavailable")
             job_id = hashlib.sha256(f"{document_id}:{doc['revision']}:{profile}".encode()).hexdigest()[:32]
             db.execute("INSERT OR IGNORE INTO jobs(id,document_id,revision,profile,status,created_at) VALUES (?,?,?,?,?,?)", (job_id,document_id,doc['revision'],profile,'queued',self.store.clock()))
+            if budget is not None:
+                old=db.execute('SELECT * FROM budgets WHERE job_id=?',(job_id,)).fetchone()
+                if old and (old['max_calls'],old['max_tokens'])!=tuple(budget) and db.execute('SELECT 1 FROM model_calls WHERE job_id=? LIMIT 1',(job_id,)).fetchone():
+                    raise Conflict('An active usage budget is immutable')
+                db.execute('INSERT INTO budgets VALUES (?,?,?) ON CONFLICT(job_id) DO UPDATE SET max_calls=excluded.max_calls,max_tokens=excluded.max_tokens',(job_id,*budget))
             return dict(db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone())
 
     def get(self, job_id):

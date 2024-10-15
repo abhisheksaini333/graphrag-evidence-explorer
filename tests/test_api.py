@@ -32,3 +32,11 @@ class APITests(unittest.TestCase):
         status,_=self.request('POST','/api/index',{'document_id':'atlas','max_calls':0})
         self.assertEqual(status,422)
         self.assertEqual(self.request('GET','/api/jobs')[1],[])
+    def test_index_budget_is_installed_before_a_worker_can_claim_the_job(self):
+        from explorer.jobs import JobQueue
+        from explorer.budget import ModelBudget
+        self.request('POST','/api/documents',{'id':'atlas','title':'Atlas','text':'Mira owns Atlas.'})
+        status,job=self.request('POST','/api/index',{'document_id':'atlas','max_calls':3,'max_tokens':4096})
+        self.assertEqual(status,202)
+        claimed=JobQueue(self.store).claim('test')
+        self.assertEqual(ModelBudget(JobQueue(self.store)).usage(claimed['id'])['max_calls'],3)
