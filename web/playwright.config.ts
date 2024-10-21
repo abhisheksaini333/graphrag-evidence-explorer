@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({ testDir: './test/browser', timeout: 180000, expect: { timeout: 15000 }, workers: 1, use: { baseURL: process.env.EXPLORER_URL || 'http://127.0.0.1:8089', headless: true, launchOptions: { executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' }, screenshot: 'only-on-failure' }, reporter: [['list'], ['json', { outputFile: process.env.BROWSER_REPORT || 'test-results/report.json' }]] });

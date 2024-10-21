@@ -1,0 +1,230 @@
+[
+  {
+    "package": "@esbuild/android-arm",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:51.621Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/android-arm64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:49.500Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/android-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:50.833Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/darwin-arm64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:59.655Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/darwin-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:50.761Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/freebsd-arm64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:39.531Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/freebsd-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:40.948Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-arm",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:00.313Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-arm64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:10.950Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-ia32",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:00.019Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-loong64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:10.881Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-mips64el",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:11.892Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-ppc64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:20.437Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-riscv64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:11.567Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-s390x",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:21.749Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/linux-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:02.100Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/netbsd-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:40.191Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/openbsd-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:40.824Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/sunos-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:26.273Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/win32-arm64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:24.074Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/win32-ia32",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:23.822Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@esbuild/win32-x64",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:47:25.915Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@playwright/test",
+    "version": "1.31.2",
+    "published": "2023-03-02T20:03:40.704Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@types/node",
+    "version": "18.15.3",
+    "published": "2023-03-14T06:02:44.395Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@types/prop-types",
+    "version": "15.7.5",
+    "published": "2022-04-07T17:31:44.553Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@types/react",
+    "version": "18.0.28",
+    "published": "2023-02-11T11:32:33.684Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@types/react-dom",
+    "version": "18.0.11",
+    "published": "2023-02-15T00:33:03.209Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "@types/scheduler",
+    "version": "0.16.2",
+    "published": "2021-07-06T16:44:49.372Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "csstype",
+    "version": "3.1.1",
+    "published": "2022-09-13T07:46:39.111Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "esbuild",
+    "version": "0.17.14",
+    "published": "2023-03-26T02:48:28.472Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "fsevents",
+    "version": "2.3.2",
+    "published": "2021-02-05T14:46:33.925Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "js-tokens",
+    "version": "4.0.0",
+    "published": "2018-01-28T11:58:58.170Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "loose-envify",
+    "version": "1.4.0",
+    "published": "2018-07-10T11:09:45.917Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "playwright-core",
+    "version": "1.31.2",
+    "published": "2023-03-02T20:03:29.909Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "react",
+    "version": "18.2.0",
+    "published": "2022-06-14T19:46:38.369Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "react-dom",
+    "version": "18.2.0",
+    "published": "2022-06-14T19:46:48.370Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "scheduler",
+    "version": "0.23.0",
+    "published": "2022-06-14T19:47:20.413Z",
+    "ecosystem": "npm"
+  },
+  {
+    "package": "typescript",
+    "version": "4.9.5",
+    "published": "2023-01-30T21:05:37.231Z",
+    "ecosystem": "npm"
+  }
+]

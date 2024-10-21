@@ -110,6 +110,9 @@ def create_server(store,model,host='127.0.0.1',port=8089,static=None):
                     if document['revision']!=job['revision']:raise Conflict('Extraction source changed')
                     return 200,evidence.extraction_details(job['id'])
             else:
+                if path=='/api/demo':
+                    from .seed import seed
+                    return 202,[public_job(job) for job in seed(store,Path(__file__).resolve().parents[1]/'examples/corpus.json')]
                 if path=='/api/documents':return 201,store.put_document(DocumentInput.parse(value),value.get('expected_revision'))
                 if path.startswith('/api/documents/') and path.endswith('/delete'):return 200,store.delete_document(path.split('/')[3],value['expected_revision'])
                 if path=='/api/index':
