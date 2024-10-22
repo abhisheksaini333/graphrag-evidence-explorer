@@ -1,6 +1,7 @@
 """Bounded vector and graph retrieval with explicit source-citation validation."""
 import json,re
 from .domain import Invalid
+from .json_contract import strict_json
 from .evidence import normalized_vector
 
 
@@ -41,11 +42,11 @@ def retrieve(snapshot,question,mode,query_vector,limit=6,character_budget=2400,g
 
 
 def check_answer(raw,allowed):
-    try:value=json.loads(raw)
+    try:value=strict_json(raw)
     except (TypeError,ValueError) as exc:raise Invalid('Model answer did not satisfy the JSON contract') from exc
     if not isinstance(value,dict) or set(value)!={'answer','citations'} or not isinstance(value['answer'],str) or not isinstance(value['citations'],list):raise Invalid('Answer requires text and a citation array')
     if len(value['answer'])>2000 or any(not isinstance(c,str) for c in value['citations']):raise Invalid('Answer exceeds citation contract')
     abstained=value['answer'].strip()=='Insufficient evidence.'
     cited=set(value['citations']);inline=set(re.findall(r'\[(S\d+)\]',value['answer']))
-    if not cited<=set(allowed) or cited!=inline or (not abstained and not cited) or (abstained and cited):raise Invalid('Answer citations are missing or outside the retrieved evidence')
+    if not cited<=set(allowed) or not inline<=cited or (not abstained and not cited) or (abstained and cited):raise Invalid('Answer citations are missing or outside the retrieved evidence')
     return {**value,'abstained':abstained,'verification':'citation_links_only'}

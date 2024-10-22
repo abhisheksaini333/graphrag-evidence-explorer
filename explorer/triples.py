@@ -5,6 +5,7 @@ establish semantic entailment: source assertions may themselves be false.
 """
 import json
 import re
+from .json_contract import strict_json
 from .domain import Invalid
 
 
@@ -15,7 +16,7 @@ def parse_triples(raw, source):
     if not isinstance(raw,str) or len(raw) > 20000:
         raise Invalid("Extraction output exceeds its schema limit")
     try:
-        rows = json.loads(raw)
+        rows = strict_json(raw)
     except ValueError as exc:
         raise Invalid("Extraction did not return a JSON array") from exc
     if not isinstance(rows,list) or len(rows) > 32:

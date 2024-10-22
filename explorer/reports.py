@@ -1,6 +1,7 @@
 """Draft community reports through GraphRAG's original report extractor."""
 import asyncio,json
 from types import SimpleNamespace
+from .json_contract import strict_json
 from .domain import Invalid
 from .graph import build_graph
 from .search import Search
@@ -25,7 +26,7 @@ class Reports(Search):
             prompt=prompt.format(**kwargs['variables'])
             call=self.runs.reserve(run['id'],'community_report',len(prompt.encode())+256)
             response=self.model.generate(prompt,256);self.runs.complete_call(call,response)
-            value=json.loads(response['text'])
+            value=strict_json(response['text'])
             if not kwargs['is_response_valid'](value):raise Invalid('Community report violates framework schema')
             if len(value['findings'])>2 or any(not isinstance(f,str) for f in value['findings']):raise Invalid('Community findings exceed the bounded profile')
             return SimpleNamespace(json=value)

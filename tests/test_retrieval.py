@@ -20,3 +20,7 @@ class RetrievalTests(unittest.TestCase):
         for raw in ['Iris','{"answer":"Iris","citations":[]}','{"answer":"Iris [S2]","citations":["S2"]}']:
             with self.assertRaises(Invalid):check_answer(raw,allowed)
         self.assertTrue(check_answer('{"answer":"Insufficient evidence.","citations":[]}',allowed)['abstained'])
+    def test_separate_citation_array_is_valid_but_duplicate_json_members_are_rejected(self):
+        result=check_answer('{"answer":"Mira","citations":["S1"]}',['S1'])
+        self.assertEqual(result['citations'],['S1'])
+        with self.assertRaises(Invalid):check_answer('{"answer":"wrong","answer":"Insufficient evidence.","citations":[]}',['S1'])

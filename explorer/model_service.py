@@ -4,6 +4,7 @@ from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 import json
 import threading
 from urllib.parse import urlsplit
+from .json_contract import strict_json
 from .domain import Invalid
 from .models import generation_request,embedding_request
 
@@ -53,7 +54,7 @@ def create_server(runtime,host='127.0.0.1',port=8090):
                 size = int(lengths[0])
                 if not 1 <= size <= 65536:
                     raise ValueError()
-                value = json.loads(self.rfile.read(size))
+                value = strict_json(self.rfile.read(size))
             except (ValueError,UnicodeError,TimeoutError):
                 return self.send_json(400,{'error':'invalid_json_body'})
             if self.path not in ('/generate','/embed'):

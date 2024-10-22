@@ -5,6 +5,7 @@ from pathlib import Path
 from urllib.parse import urlsplit,unquote
 from .budget import ModelBudget
 from .corrections import Corrections
+from .json_contract import strict_json
 from .domain import DocumentInput,Invalid
 from .evidence import EvidenceStore
 from .graph import build_graph,neighborhood
@@ -66,7 +67,7 @@ def create_server(store,model,host='127.0.0.1',port=8089,static=None):
                 if not 1<=size<=262144:raise ValueError()
                 raw=self.rfile.read(size)
                 if len(raw)!=size:raise ValueError()
-                value=json.loads(raw)
+                value=strict_json(raw)
             except (ValueError,UnicodeError,TimeoutError) as error:raise Invalid('Invalid or oversized JSON body') from error
             if not isinstance(value,dict):raise Invalid('JSON object is required')
             return value
