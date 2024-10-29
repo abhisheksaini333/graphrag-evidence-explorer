@@ -9,8 +9,7 @@ class AnswerModel:
         m=model_manifest();return {'model_revision':m['generation']['revision'],'embedding_revision':m['embedding']['revision'],'embedding_dimensions':384}
     def embed(self,texts):return {'vectors':[[1.]+[0.]*383 for _ in texts],'input_tokens':5}
     def generate(self,prompt,max_new_tokens=192):
-        if 'MAP EVIDENCE' in prompt:text=json.dumps({'points':[{'description':'Mira owns Atlas [S1].','score':90}]})
-        else:text=json.dumps({'answer':'Mira owns Atlas [S1].','citations':['S1']})
+        text=json.dumps({'answer':'Mira owns Atlas [S1].','citations':['S1']})
         return {'text':text,'input_tokens':50,'output_tokens':15}
 
 @unittest.skipUnless(importlib.util.find_spec('graphrag'),'Requires frozen GraphRAG runtime')
