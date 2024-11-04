@@ -1,6 +1,7 @@
 """A local one-slot model process, isolated from the graph runtime dependencies."""
 import argparse
-from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler
+from .runtime_control import BoundedHTTPServer
 import json
 import threading
 from urllib.parse import urlsplit
@@ -74,7 +75,7 @@ def create_server(runtime,host='127.0.0.1',port=8090):
             finally:
                 admission.release()
 
-    server = ThreadingHTTPServer((host,port),Handler)
+    server = BoundedHTTPServer((host,port),Handler)
     server.daemon_threads = True
     return server
 

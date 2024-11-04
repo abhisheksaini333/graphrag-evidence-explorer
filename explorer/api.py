@@ -1,6 +1,7 @@
 """Loopback operator API with same-origin mutations and bounded query admission."""
 import argparse,json,logging,mimetypes,threading
-from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler
+from .runtime_control import BoundedHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit,unquote
 from .budget import ModelBudget
@@ -20,7 +21,7 @@ from .store import Store,Conflict,Missing
 
 def create_server(store,model,host='127.0.0.1',port=8089,static=None):
     jobs=JobQueue(store);evidence=EvidenceStore(jobs);corrections=Corrections(evidence)
-    runs=QueryRuns(store);search=Search(store,model);reports=Reports(store,model)
+    runs=QueryRuns(store);search=Search(store,model,owner='api');reports=Reports(store,model,owner='api')
     admission=threading.BoundedSemaphore(1)
     static=Path(static).resolve() if static else None
     graph_lock=threading.Lock();graph_cache={}
@@ -133,7 +134,7 @@ def create_server(store,model,host='127.0.0.1',port=8089,static=None):
                         return 200,result
                     finally:admission.release()
             raise Missing('Route is unavailable')
-    server=ThreadingHTTPServer((host,port),Handler);server.daemon_threads=True
+    server=BoundedHTTPServer((host,port),Handler);server.daemon_threads=True
     return server
 
 
@@ -141,9 +142,13 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--database',default='.data/corpus.sqlite');parser.add_argument('--model-url',default='http://127.0.0.1:8090')
     parser.add_argument('--host',default='127.0.0.1');parser.add_argument('--port',type=int,default=8089);parser.add_argument('--static',default='web/dist')
-    args=parser.parse_args();server=create_server(Store(args.database),ModelClient(args.model_url),args.host,args.port,args.static)
-    print(f'Evidence Explorer listening on {args.host}:{args.port}',flush=True)
-    try:server.serve_forever()
-    finally:server.server_close()
+    args=parser.parse_args()
+    from .runtime_control import OperatorLease,recover_queries
+    with OperatorLease(args.database):
+        store=Store(args.database);recover_queries(store)
+        server=create_server(store,ModelClient(args.model_url),args.host,args.port,args.static)
+        print(f'Evidence Explorer listening on {args.host}:{args.port}',flush=True)
+        try:server.serve_forever()
+        finally:server.server_close()
 
 if __name__=='__main__':main()

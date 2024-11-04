@@ -49,9 +49,9 @@ class BoundedLLM:
             self.error=error;raise
 
 class Search:
-    def __init__(self,store,model,profile=PROFILE):
+    def __init__(self,store,model,profile=PROFILE,owner='cli'):
         self.store,self.model,self.profile=store,model,profile
-        self.evidence=EvidenceStore(JobQueue(store));self.runs=QueryRuns(store)
+        self.evidence=EvidenceStore(JobQueue(store));self.runs=QueryRuns(store,owner=owner)
 
     def query(self,question,mode):
         bounded_text(question,'Question',500)

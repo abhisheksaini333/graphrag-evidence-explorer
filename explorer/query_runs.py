@@ -9,7 +9,8 @@ SCHEMA="""
 CREATE TABLE IF NOT EXISTS query_runs (
  id TEXT PRIMARY KEY, mode TEXT NOT NULL, question TEXT NOT NULL,
  generation INTEGER NOT NULL, status TEXT NOT NULL, max_calls INTEGER NOT NULL,
- max_tokens INTEGER NOT NULL, created_at REAL NOT NULL, result TEXT, error TEXT
+ max_tokens INTEGER NOT NULL, created_at REAL NOT NULL, result TEXT, error TEXT,
+ owner TEXT NOT NULL DEFAULT 'cli'
 );
 CREATE TABLE IF NOT EXISTS query_calls (
  id TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES query_runs(id),
@@ -19,9 +20,14 @@ CREATE TABLE IF NOT EXISTS query_calls (
 """
 
 class QueryRuns:
-    def __init__(self,store):
-        self.store=store
-        with store.connect() as db:db.executescript(SCHEMA)
+    def __init__(self,store,owner='cli'):
+        self.store,self.owner=store,owner
+        with store.connect() as db:
+            db.executescript(SCHEMA)
+            db.execute('BEGIN IMMEDIATE')
+            if 'owner' not in {row[1] for row in db.execute('PRAGMA table_info(query_runs)')}:
+                db.execute("ALTER TABLE query_runs ADD COLUMN owner TEXT NOT NULL DEFAULT 'cli'")
+            db.commit()
 
     def start(self,mode,question,generation,max_calls=8,max_tokens=24000):
         if mode not in ('vector','local','global','community'):raise Invalid('Choose vector, local or global search')
@@ -30,7 +36,7 @@ class QueryRuns:
         run_id=uuid.uuid4().hex
         with self.store.transaction() as db:
             if generation!=db.execute("SELECT value FROM metadata WHERE key='generation'").fetchone()[0]:raise Conflict('Corpus changed before query started')
-            db.execute('INSERT INTO query_runs VALUES (?,?,?,?,?,?,?,?,NULL,NULL)',(run_id,mode,question,generation,'running',max_calls,max_tokens,self.store.clock()))
+            db.execute('INSERT INTO query_runs(id,mode,question,generation,status,max_calls,max_tokens,created_at,owner) VALUES (?,?,?,?,?,?,?,?,?)',(run_id,mode,question,generation,'running',max_calls,max_tokens,self.store.clock(),self.owner))
         return self.get(run_id)
 
     def reserve(self,run_id,kind,tokens):
