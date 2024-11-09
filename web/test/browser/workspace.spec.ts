@@ -6,7 +6,11 @@ test('inspect original evidence, correct a relationship and restore it', async (
   await page.getByRole('button', { name: 'Inspect Iris', exact: true }).click();
   await page.getByRole('button', { name: 'Read source ↗' }).first().click();
   await expect(page.getByRole('dialog')).toContainText('Iris owns Lumen.');
-  await page.getByRole('button', { name: 'Close source' }).click();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Close source' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Read source ↗' }).first()).toBeFocused();
   page.once('dialog', dialog => dialog.accept('Browser review: check source assignment.'));
   await page.getByRole('button', { name: 'Flag relationship' }).first().click();
   await expect(page.getByRole('status')).toContainText('Correction saved');
