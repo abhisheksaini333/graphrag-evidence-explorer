@@ -1,0 +1,980 @@
+[
+  {
+    "name": "aiofiles",
+    "version": "24.1.0",
+    "artifact": "https://files.pythonhosted.org/packages/a5/45/30bb92d442636f570cb5651bc661f52b610e2eec3f891a5dc3a4c3667db0/aiofiles-24.1.0-py3-none-any.whl",
+    "sha256": "b4ec55f4195e3eb5d7abd1bf7e061763e864dd4954231fb8539a0ef8bb8260e5",
+    "released": "2024-06-24T11:02:01.529179+00:00",
+    "eligible": true
+  },
+  {
+    "name": "aiolimiter",
+    "version": "1.1.0",
+    "artifact": "https://files.pythonhosted.org/packages/60/69/4b7dea755fafa10b248928da836a2cc8b5cff0762f363234e24218040f8e/aiolimiter-1.1.0-py3-none-any.whl",
+    "sha256": "0b4997961fc58b8df40279e739f9cf0d3e255e63e9a44f64df567a8c17241e24",
+    "released": "2023-05-08T15:07:17.807989+00:00",
+    "eligible": true
+  },
+  {
+    "name": "annotated-types",
+    "version": "0.7.0",
+    "artifact": "https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl",
+    "sha256": "1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53",
+    "released": "2024-05-20T21:33:24.100469+00:00",
+    "eligible": true
+  },
+  {
+    "name": "anyio",
+    "version": "4.4.0",
+    "artifact": "https://files.pythonhosted.org/packages/7b/a2/10639a79341f6c019dedc95bd48a4928eed9f1d1197f4c04f546fc7ae0ff/anyio-4.4.0-py3-none-any.whl",
+    "sha256": "c1b2d8f46a8a812513012e1107cb0e68c17159a7a594208005a57dc776e1bdc7",
+    "released": "2024-05-26T22:02:13.671151+00:00",
+    "eligible": true
+  },
+  {
+    "name": "anytree",
+    "version": "2.12.1",
+    "artifact": "https://files.pythonhosted.org/packages/6a/fb/ff946843e6b55ae9fda84df3964d6c233cd2261dface789f5be02ab79bc5/anytree-2.12.1-py3-none-any.whl",
+    "sha256": "5ea9e61caf96db1e5b3d0a914378d2cd83c269dfce1fb8242ce96589fa3382f0",
+    "released": "2023-11-16T21:53:00.317855+00:00",
+    "eligible": true
+  },
+  {
+    "name": "asttokens",
+    "version": "2.4.1",
+    "artifact": "https://files.pythonhosted.org/packages/45/86/4736ac618d82a20d87d2f92ae19441ebc7ac9e7a581d7e58bbe79233b24a/asttokens-2.4.1-py2.py3-none-any.whl",
+    "sha256": "051ed49c3dcae8913ea7cd08e46a606dba30b79993209636c4875bc1d637bc24",
+    "released": "2023-10-26T10:03:01.789669+00:00",
+    "eligible": true
+  },
+  {
+    "name": "attrs",
+    "version": "23.2.0",
+    "artifact": "https://files.pythonhosted.org/packages/e0/44/827b2a91a5816512fcaf3cc4ebc465ccd5d598c45cefa6703fcf4a79018f/attrs-23.2.0-py3-none-any.whl",
+    "sha256": "99b87a485a5820b23b879f04c2305b44b951b502fd64be915879d77a7e8fc6f1",
+    "released": "2023-12-31T06:30:30.772444+00:00",
+    "eligible": true
+  },
+  {
+    "name": "autograd",
+    "version": "1.6.2",
+    "artifact": "https://files.pythonhosted.org/packages/81/70/d5c7c2a458b8be96495c8b1634c2155beab58cbe864b7a9a5c06c2e52520/autograd-1.6.2-py3-none-any.whl",
+    "sha256": "208dde2a938e63b4f8f5049b1985505139e529068b0d26f8cd7771fd3eb145d5",
+    "released": "2023-06-23T08:36:38.475378+00:00",
+    "eligible": true
+  },
+  {
+    "name": "azure-common",
+    "version": "1.1.28",
+    "artifact": "https://files.pythonhosted.org/packages/62/55/7f118b9c1b23ec15ca05d15a578d8207aa1706bc6f7c87218efffbbf875d/azure_common-1.1.28-py2.py3-none-any.whl",
+    "sha256": "5c12d3dcf4ec20599ca6b0d3e09e86e146353d443e7fcc050c9a19c1f9df20ad",
+    "released": "2022-02-03T19:39:42.417501+00:00",
+    "eligible": true
+  },
+  {
+    "name": "azure-core",
+    "version": "1.30.2",
+    "artifact": "https://files.pythonhosted.org/packages/ef/d7/69d53f37733f8cb844862781767aef432ff3152bc9b9864dc98c7e286ce9/azure_core-1.30.2-py3-none-any.whl",
+    "sha256": "cf019c1ca832e96274ae85abd3d9f752397194d9fea3b41487290562ac8abe4a",
+    "released": "2024-06-06T16:53:49.814422+00:00",
+    "eligible": true
+  },
+  {
+    "name": "azure-identity",
+    "version": "1.17.1",
+    "artifact": "https://files.pythonhosted.org/packages/49/83/a777861351e7b99e7c84ff3b36bab35e87b6e5d36e50b6905e148c696515/azure_identity-1.17.1-py3-none-any.whl",
+    "sha256": "db8d59c183b680e763722bfe8ebc45930e6c57df510620985939f7f3191e0382",
+    "released": "2024-06-22T01:41:49.309519+00:00",
+    "eligible": true
+  },
+  {
+    "name": "azure-search-documents",
+    "version": "11.4.0",
+    "artifact": "https://files.pythonhosted.org/packages/a7/c4/d6d91c09b706400d1a2c67bcb78335d45368c83562e3531e8157a49843d8/azure_search_documents-11.4.0-py3-none-any.whl",
+    "sha256": "e435266dc992a3450dc475309c9475f89a4bb0e9dac838140e609d9f1c7608ac",
+    "released": "2023-11-13T16:11:59.313932+00:00",
+    "eligible": true
+  },
+  {
+    "name": "azure-storage-blob",
+    "version": "12.20.0",
+    "artifact": "https://files.pythonhosted.org/packages/15/19/2be26569e708cb618feecd7316ee0c5475273f7cdb4f9030a862870c74c8/azure_storage_blob-12.20.0-py3-none-any.whl",
+    "sha256": "de6b3bf3a90e9341a6bcb96a2ebe981dffff993e9045818f6549afea827a52a9",
+    "released": "2024-05-08T20:12:34.304796+00:00",
+    "eligible": true
+  },
+  {
+    "name": "beartype",
+    "version": "0.18.5",
+    "artifact": "https://files.pythonhosted.org/packages/64/43/7a1259741bd989723272ac7d381a43be932422abcff09a1d9f7ba212cb74/beartype-0.18.5-py3-none-any.whl",
+    "sha256": "5301a14f2a9a5540fe47ec6d34d758e9cd8331d36c4760fc7a5499ab86310089",
+    "released": "2024-04-21T07:25:55.758384+00:00",
+    "eligible": true
+  },
+  {
+    "name": "cachetools",
+    "version": "5.3.3",
+    "artifact": "https://files.pythonhosted.org/packages/fb/2b/a64c2d25a37aeb921fddb929111413049fc5f8b9a4c1aefaffaafe768d54/cachetools-5.3.3-py3-none-any.whl",
+    "sha256": "0abad1021d3f8325b2fc1d2e9c8b9c9d57b04c3932657a72465447332c24d945",
+    "released": "2024-02-26T20:33:20.308820+00:00",
+    "eligible": true
+  },
+  {
+    "name": "certifi",
+    "version": "2024.7.4",
+    "artifact": "https://files.pythonhosted.org/packages/1c/d5/c84e1a17bf61d4df64ca866a1c9a913874b4e9bdc131ec689a0ad013fb36/certifi-2024.7.4-py3-none-any.whl",
+    "sha256": "c198e21b1289c2ab85ee4e67bb4b4ef3ead0892059901a8d5b622f24a1101e90",
+    "released": "2024-07-04T01:36:09.038930+00:00",
+    "eligible": true
+  },
+  {
+    "name": "cffi",
+    "version": "1.16.0",
+    "artifact": "https://files.pythonhosted.org/packages/c9/7c/43d81bdd5a915923c3bad5bb4bff401ea00ccc8e28433fb6083d2e3bf58e/cffi-1.16.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "e4108df7fe9b707191e55f33efbcb2d81928e10cea45527879a4749cbe472614",
+    "released": "2023-09-28T18:00:37.697262+00:00",
+    "eligible": true
+  },
+  {
+    "name": "charset-normalizer",
+    "version": "3.3.2",
+    "artifact": "https://files.pythonhosted.org/packages/da/f1/3702ba2a7470666a62fd81c58a4c40be00670e5006a67f4d626e57f013ae/charset_normalizer-3.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "8465322196c8b4d7ab6d1e049e4c5cb460d0394da4a27d23cc242fbf0034b6b5",
+    "released": "2023-11-01T04:02:41.357299+00:00",
+    "eligible": true
+  },
+  {
+    "name": "click",
+    "version": "8.1.7",
+    "artifact": "https://files.pythonhosted.org/packages/00/2e/d53fa4befbf2cfa713304affc7ca780ce4fc1fd8710527771b58311a3229/click-8.1.7-py3-none-any.whl",
+    "sha256": "ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28",
+    "released": "2023-08-17T17:29:10.080169+00:00",
+    "eligible": true
+  },
+  {
+    "name": "cloudpickle",
+    "version": "3.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/96/43/dae06432d0c4b1dc9e9149ad37b4ca8384cf6eb7700cd9215b177b914f0a/cloudpickle-3.0.0-py3-none-any.whl",
+    "sha256": "246ee7d0c295602a036e86369c77fecda4ab17b506496730f2f576d9016fd9c7",
+    "released": "2023-10-16T12:51:24.415831+00:00",
+    "eligible": true
+  },
+  {
+    "name": "contourpy",
+    "version": "1.2.1",
+    "artifact": "https://files.pythonhosted.org/packages/67/0f/6e5b4879594cd1cbb6a2754d9230937be444f404cf07c360c07a10b36aac/contourpy-1.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "39f3ecaf76cd98e802f094e0d4fbc6dc9c45a8d0c4d185f0f6c2234e14e5f75b",
+    "released": "2024-04-02T20:35:26.982434+00:00",
+    "eligible": true
+  },
+  {
+    "name": "cramjam",
+    "version": "2.8.3",
+    "artifact": "https://files.pythonhosted.org/packages/10/01/8a7d8ea0cb7ca2e701e9bb7f1f7a04348024030b9fda0428b5e5637c7a51/cramjam-2.8.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "3f6303c8cc583dfe5054cf84717674f75b18bca4ae8e576dc863958d5494dc4b",
+    "released": "2024-03-21T12:21:18.202467+00:00",
+    "eligible": true
+  },
+  {
+    "name": "cryptography",
+    "version": "42.0.8",
+    "artifact": "https://files.pythonhosted.org/packages/fa/e2/b7e6e8c261536c489d9cf908769880d94bd5d9a187e166b0dc838d2e6a56/cryptography-42.0.8-cp39-abi3-manylinux_2_28_x86_64.whl",
+    "sha256": "9c0c1716c8447ee7dbf08d6db2e5c41c688544c61074b54fc4564196f55c25a7",
+    "released": "2024-06-04T19:54:50.599337+00:00",
+    "eligible": true
+  },
+  {
+    "name": "cycler",
+    "version": "0.12.1",
+    "artifact": "https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl",
+    "sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30",
+    "released": "2023-10-07T05:32:16.783035+00:00",
+    "eligible": true
+  },
+  {
+    "name": "dask",
+    "version": "2024.7.0",
+    "artifact": "https://files.pythonhosted.org/packages/c6/c7/79f6ae51b64c20db98100946544a47a20671e589be19404f6696481d6024/dask-2024.7.0-py3-none-any.whl",
+    "sha256": "0f30f218a1fe1c8e9a6ba8add1207088ba9ff049098d4ea4ce045fd5ff7ca914",
+    "released": "2024-07-05T19:37:14.152956+00:00",
+    "eligible": true
+  },
+  {
+    "name": "dask-expr",
+    "version": "1.1.7",
+    "artifact": "https://files.pythonhosted.org/packages/8c/8e/d424659bfaa8ad706740986e7b3e0455a800333c9014af45ea03fc31728d/dask_expr-1.1.7-py3-none-any.whl",
+    "sha256": "6f45468499b50839e9d9a43f599f7f70a50f50048bce93557c2dea24bfcad3bb",
+    "released": "2024-07-05T19:37:20.257412+00:00",
+    "eligible": true
+  },
+  {
+    "name": "datashaper",
+    "version": "0.0.49",
+    "artifact": "https://files.pythonhosted.org/packages/cb/b9/f5cebf0fd2ebee6449663989f275f186928c92b94d05c9503c9ccc814757/datashaper-0.0.49-py3-none-any.whl",
+    "sha256": "7f58cabacc834765595c6e04cfbbd05be6af71907e46ebc7a91d2a4add7c2643",
+    "released": "2024-03-18T16:16:51.033813+00:00",
+    "eligible": true
+  },
+  {
+    "name": "decorator",
+    "version": "5.1.1",
+    "artifact": "https://files.pythonhosted.org/packages/d5/50/83c593b07763e1161326b3b8c6686f0f4b0f24d5526546bee538c89837d6/decorator-5.1.1-py3-none-any.whl",
+    "sha256": "b8c3f85900b9dc423225913c5aace94729fe1fa9763b38939a95226f02d37186",
+    "released": "2022-01-07T08:20:03.734182+00:00",
+    "eligible": true
+  },
+  {
+    "name": "deprecation",
+    "version": "2.1.0",
+    "artifact": "https://files.pythonhosted.org/packages/02/c3/253a89ee03fc9b9682f1541728eb66db7db22148cd94f89ab22528cd1e1b/deprecation-2.1.0-py2.py3-none-any.whl",
+    "sha256": "a10811591210e1fb0e768a8c25517cabeabcba6f0bf96564f8ff45189f90b14a",
+    "released": "2020-04-20T14:23:36.581193+00:00",
+    "eligible": true
+  },
+  {
+    "name": "devtools",
+    "version": "0.12.2",
+    "artifact": "https://files.pythonhosted.org/packages/d1/ae/afb1487556e2dc827a17097aac8158a25b433a345386f0e249f6d2694ccb/devtools-0.12.2-py3-none-any.whl",
+    "sha256": "c366e3de1df4cdd635f1ad8cbcd3af01a384d7abda71900e68d43b04eb6aaca7",
+    "released": "2023-09-03T16:56:59.049159+00:00",
+    "eligible": true
+  },
+  {
+    "name": "diskcache",
+    "version": "5.6.3",
+    "artifact": "https://files.pythonhosted.org/packages/3f/27/4570e78fc0bf5ea0ca45eb1de3818a23787af9b390c0b0a0033a1b8236f9/diskcache-5.6.3-py3-none-any.whl",
+    "sha256": "5e31b2d5fbad117cc363ebaf6b689474db18a1f6438bc82358b024abd4c2ca19",
+    "released": "2023-08-31T06:11:58.822453+00:00",
+    "eligible": true
+  },
+  {
+    "name": "distro",
+    "version": "1.9.0",
+    "artifact": "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl",
+    "sha256": "7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2",
+    "released": "2023-12-24T09:54:30.421191+00:00",
+    "eligible": true
+  },
+  {
+    "name": "environs",
+    "version": "11.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/3f/30/ef8a3022e6cdcedfd7ba03ca88ab29e30334f8e958cdbf5ce120912397e8/environs-11.0.0-py3-none-any.whl",
+    "sha256": "e0bcfd41c718c07a7db422f9109e490746450da38793fe4ee197f397b9343435",
+    "released": "2024-03-04T20:03:57.305216+00:00",
+    "eligible": true
+  },
+  {
+    "name": "exceptiongroup",
+    "version": "1.2.2",
+    "artifact": "https://files.pythonhosted.org/packages/02/cc/b7e31358aac6ed1ef2bb790a9746ac2c69bcb3c8588b41616914eb106eaf/exceptiongroup-1.2.2-py3-none-any.whl",
+    "sha256": "3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b",
+    "released": "2024-07-12T22:25:58.476848+00:00",
+    "eligible": true
+  },
+  {
+    "name": "executing",
+    "version": "2.0.1",
+    "artifact": "https://files.pythonhosted.org/packages/80/03/6ea8b1b2a5ab40a7a60dc464d3daa7aa546e0a74d74a9f8ff551ea7905db/executing-2.0.1-py2.py3-none-any.whl",
+    "sha256": "eac49ca94516ccc753f9fb5ce82603156e590b27525a8bc32cce8ae302eb61bc",
+    "released": "2023-10-29T10:17:10.229845+00:00",
+    "eligible": true
+  },
+  {
+    "name": "fastparquet",
+    "version": "2024.5.0",
+    "artifact": "https://files.pythonhosted.org/packages/3e/a4/2ff7b6688d614bef88d2b2a14a5479cbc310d7d296e738d71f182eba2f30/fastparquet-2024.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "f411056152b5d3cc82b6624d9da80535d10d9277d921fdb2e9516e93c8c227e8",
+    "released": "2024-05-21T16:51:36.539752+00:00",
+    "eligible": true
+  },
+  {
+    "name": "fonttools",
+    "version": "4.53.1",
+    "artifact": "https://files.pythonhosted.org/packages/56/61/ad19cad430aacbc3418be503e1f6daed9375c997a4e32b78a91195b3054a/fonttools-4.53.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "a1c7c5aa18dd3b17995898b4a9b5929d69ef6ae2af5b96d585ff4005033d82f0",
+    "released": "2024-07-05T12:38:39.101590+00:00",
+    "eligible": true
+  },
+  {
+    "name": "fsspec",
+    "version": "2024.6.1",
+    "artifact": "https://files.pythonhosted.org/packages/5e/44/73bea497ac69bafde2ee4269292fa3b41f1198f4bb7bbaaabde30ad29d4a/fsspec-2024.6.1-py3-none-any.whl",
+    "sha256": "3cb443f8bcd2efb31295a5b9fdb02aee81d8452c80d28f97a6d0959e6cee101e",
+    "released": "2024-06-27T14:35:42.023720+00:00",
+    "eligible": true
+  },
+  {
+    "name": "future",
+    "version": "1.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/da/71/ae30dadffc90b9006d77af76b393cb9dfbfc9629f339fc1574a1c52e6806/future-1.0.0-py3-none-any.whl",
+    "sha256": "929292d34f5872e70396626ef385ec22355a1fae8ad29e1a734c3e43f9fbc216",
+    "released": "2024-02-21T11:52:35.956157+00:00",
+    "eligible": true
+  },
+  {
+    "name": "gensim",
+    "version": "4.3.2",
+    "artifact": "https://files.pythonhosted.org/packages/e8/d9/104988573fd2c1acdc64e66883b35fb8ae559310d2d9f77db78bf7de9add/gensim-4.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "5e34ee6f8a318fbf0b65e6d39a985ecf9e9051febfd1221ae6255fff1972c547",
+    "released": "2023-08-24T08:48:48.227645+00:00",
+    "eligible": true
+  },
+  {
+    "name": "graphrag",
+    "version": "0.1.1",
+    "artifact": "https://files.pythonhosted.org/packages/db/e1/d3930ac1880887a92b7db405a16fd754ddcac73052f79ff432f4ba94c10a/graphrag-0.1.1-py3-none-any.whl",
+    "sha256": "80123b038a8bdd8efb2980f188c891cb1368a51eec6f019e973ae1b0edca088d",
+    "released": "2024-07-01T22:56:31.970034+00:00",
+    "eligible": true
+  },
+  {
+    "name": "graspologic",
+    "version": "3.4.1",
+    "artifact": "https://files.pythonhosted.org/packages/6a/0b/9a167cec9cc4555b59cd282e8669998a50cb3f929a9a503965b24fa58a20/graspologic-3.4.1-py3-none-any.whl",
+    "sha256": "c6563e087eda599bad1de831d4b7321c0daa7a82f4e85a7d7737ff67e07cdda2",
+    "released": "2024-05-22T22:54:39.259307+00:00",
+    "eligible": true
+  },
+  {
+    "name": "graspologic-native",
+    "version": "1.2.1",
+    "artifact": "https://files.pythonhosted.org/packages/33/92/a6ed721a3bce491e082421bb1b38d1cdb389e0e9f6584022a381ae5ad9af/graspologic_native-1.2.1-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "a44cfdee11718c01c0f6c544750b3ae64e28cc03432a620fe0295704bd0d618d",
+    "released": "2024-01-25T18:05:49.145966+00:00",
+    "eligible": true
+  },
+  {
+    "name": "h11",
+    "version": "0.14.0",
+    "artifact": "https://files.pythonhosted.org/packages/95/04/ff642e65ad6b90db43e668d70ffb6736436c7ce41fcc549f4e9472234127/h11-0.14.0-py3-none-any.whl",
+    "sha256": "e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761",
+    "released": "2022-09-25T15:39:59.680277+00:00",
+    "eligible": true
+  },
+  {
+    "name": "httpcore",
+    "version": "1.0.5",
+    "artifact": "https://files.pythonhosted.org/packages/78/d4/e5d7e4f2174f8a4d63c8897d79eb8fe2503f7ecc03282fee1fa2719c2704/httpcore-1.0.5-py3-none-any.whl",
+    "sha256": "421f18bac248b25d310f3cacd198d55b8e6125c107797b609ff9b7a6ba7991b5",
+    "released": "2024-03-27T18:29:04.098086+00:00",
+    "eligible": true
+  },
+  {
+    "name": "httpx",
+    "version": "0.27.0",
+    "artifact": "https://files.pythonhosted.org/packages/41/7b/ddacf6dcebb42466abd03f368782142baa82e08fc0c1f8eaa05b4bae87d5/httpx-0.27.0-py3-none-any.whl",
+    "sha256": "71d5465162c13681bff01ad59b2cc68dd838ea1f10e51574bac27103f00c91a5",
+    "released": "2024-02-21T13:07:50.455078+00:00",
+    "eligible": true
+  },
+  {
+    "name": "hyppo",
+    "version": "0.4.0",
+    "artifact": "https://files.pythonhosted.org/packages/34/87/7940713f929d0280cff1bde207479cb588a0d3a4dd49a0e2e69bfff46363/hyppo-0.4.0-py3-none-any.whl",
+    "sha256": "4e75565b8deb601485cd7bc1b5c3f44e6ddf329136fc81e65d011f9b4e95132f",
+    "released": "2023-05-24T13:50:04.441911+00:00",
+    "eligible": true
+  },
+  {
+    "name": "idna",
+    "version": "3.7",
+    "artifact": "https://files.pythonhosted.org/packages/e5/3e/741d8c82801c347547f8a2a06aa57dbb1992be9e948df2ea0eda2c8b79e8/idna-3.7-py3-none-any.whl",
+    "sha256": "82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0",
+    "released": "2024-04-11T03:34:41.447563+00:00",
+    "eligible": true
+  },
+  {
+    "name": "importlib_metadata",
+    "version": "8.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/dc/ef/38766b2edb096260d9b1b6ad35adaa0bce3b0567abb452b21eb074af88c4/importlib_metadata-8.0.0-py3-none-any.whl",
+    "sha256": "15584cf2b1bf449d98ff8a6ff1abef57bf20f3ac6454f431736cd3e660921b2f",
+    "released": "2024-06-25T18:38:02.324079+00:00",
+    "eligible": true
+  },
+  {
+    "name": "isodate",
+    "version": "0.6.1",
+    "artifact": "https://files.pythonhosted.org/packages/b6/85/7882d311924cbcfc70b1890780763e36ff0b140c7e51c110fc59a532f087/isodate-0.6.1-py2.py3-none-any.whl",
+    "sha256": "0751eece944162659049d35f4f549ed815792b38793f07cf73381c1c87cbed96",
+    "released": "2021-12-13T20:28:29.073356+00:00",
+    "eligible": true
+  },
+  {
+    "name": "joblib",
+    "version": "1.4.2",
+    "artifact": "https://files.pythonhosted.org/packages/91/29/df4b9b42f2be0b623cbd5e2140cafcaa2bef0759a00b7b70104dcfe2fb51/joblib-1.4.2-py3-none-any.whl",
+    "sha256": "06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6",
+    "released": "2024-05-02T12:15:00.765677+00:00",
+    "eligible": true
+  },
+  {
+    "name": "jsonschema",
+    "version": "4.23.0",
+    "artifact": "https://files.pythonhosted.org/packages/69/4a/4f9dbeb84e8850557c02365a0eee0649abe5eb1d84af92a25731c6c0f922/jsonschema-4.23.0-py3-none-any.whl",
+    "sha256": "fbadb6f8b144a8f8cf9f0b89ba94501d143e50411a1278633f56a7acf7fd5566",
+    "released": "2024-07-08T18:40:00.165365+00:00",
+    "eligible": true
+  },
+  {
+    "name": "jsonschema-specifications",
+    "version": "2023.12.1",
+    "artifact": "https://files.pythonhosted.org/packages/ee/07/44bd408781594c4d0a027666ef27fab1e441b109dc3b76b4f836f8fd04fe/jsonschema_specifications-2023.12.1-py3-none-any.whl",
+    "sha256": "87e4fdf3a94858b8a2ba2778d9ba57d8a9cafca7c7489c46ba0d30a8bc6a9c3c",
+    "released": "2023-12-25T15:16:51.997706+00:00",
+    "eligible": true
+  },
+  {
+    "name": "kiwisolver",
+    "version": "1.4.5",
+    "artifact": "https://files.pythonhosted.org/packages/6f/40/4ab1fdb57fced80ce5903f04ae1aed7c1d5939dda4fd0c0aa526c12fe28a/kiwisolver-1.4.5-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+    "sha256": "ec20916e7b4cbfb1f12380e46486ec4bcbaa91a9c448b97023fde0d5bbf9e4ff",
+    "released": "2023-08-24T09:28:23.004285+00:00",
+    "eligible": true
+  },
+  {
+    "name": "lancedb",
+    "version": "0.9.0",
+    "artifact": "Reconstructed from the hash-verified original archive with scripts/bootstrap_lancedb.py",
+    "sha256": "72f1fb0c50677d458e72ac6fb6c79cd5a89bc57b41f83be36cdefef80644a093",
+    "original_source": "https://api.anaconda.org/download/conda-forge/lancedb/0.9.0/linux-64/lancedb-0.9.0-py310h42e942d_0.conda",
+    "released": "2024-07-11T08:44:55.236000Z",
+    "eligible": true,
+    "repacked_original_artifact": true
+  },
+  {
+    "name": "linkify-it-py",
+    "version": "2.0.3",
+    "artifact": "https://files.pythonhosted.org/packages/04/1e/b832de447dee8b582cac175871d2f6c3d5077cc56d5575cadba1fd1cccfa/linkify_it_py-2.0.3-py3-none-any.whl",
+    "sha256": "6bcbc417b0ac14323382aef5c5192c0075bf8a9d6b41820a2b66371eac6b6d79",
+    "released": "2024-02-04T14:48:02.496466+00:00",
+    "eligible": true
+  },
+  {
+    "name": "llvmlite",
+    "version": "0.43.0",
+    "artifact": "https://files.pythonhosted.org/packages/c6/21/2ffbab5714e72f2483207b4a1de79b2eecd9debbf666ff4e7067bcc5c134/llvmlite-0.43.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "6912a87782acdff6eb8bf01675ed01d60ca1f2551f8176a300a886f09e836a6a",
+    "released": "2024-06-13T18:08:26.320800+00:00",
+    "eligible": true
+  },
+  {
+    "name": "locket",
+    "version": "1.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/db/bc/83e112abc66cd466c6b83f99118035867cecd41802f8d044638aa78a106e/locket-1.0.0-py2.py3-none-any.whl",
+    "sha256": "b6c819a722f7b6bd955b80781788e4a66a55628b858d347536b7e81325a3a5e3",
+    "released": "2022-04-20T22:04:42.230844+00:00",
+    "eligible": true
+  },
+  {
+    "name": "markdown-it-py",
+    "version": "3.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/42/d7/1ec15b46af6af88f19b8e5ffea08fa375d433c998b8a7639e76935c14f1f/markdown_it_py-3.0.0-py3-none-any.whl",
+    "sha256": "355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1",
+    "released": "2023-06-03T06:41:11.019475+00:00",
+    "eligible": true
+  },
+  {
+    "name": "marshmallow",
+    "version": "3.21.3",
+    "artifact": "https://files.pythonhosted.org/packages/96/d7/f318261e6ccbba86bdf626e07cd850981508fdaec52cfcdc4ac1030327ab/marshmallow-3.21.3-py3-none-any.whl",
+    "sha256": "86ce7fb914aa865001a4b2092c4c2872d13bc347f3d42673272cabfdbad386f1",
+    "released": "2024-06-06T02:01:31.276083+00:00",
+    "eligible": true
+  },
+  {
+    "name": "matplotlib",
+    "version": "3.9.0",
+    "artifact": "https://files.pythonhosted.org/packages/a7/68/16e7b9154fae61fb29f0f3450b39b855b89e6d2c598d67302e70f96883af/matplotlib-3.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "eaf3978060a106fab40c328778b148f590e27f6fa3cd15a19d6892575bce387d",
+    "released": "2024-05-15T23:37:12.202392+00:00",
+    "eligible": true
+  },
+  {
+    "name": "mdit-py-plugins",
+    "version": "0.4.1",
+    "artifact": "https://files.pythonhosted.org/packages/ef/f7/8a4dcea720a581e69ac8c5a38524baf0e3e2bb5f3819a9ff661464fe7d10/mdit_py_plugins-0.4.1-py3-none-any.whl",
+    "sha256": "1020dfe4e6bfc2c79fb49ae4e3f5b297f5ccd20f010187acc52af2921e27dc6a",
+    "released": "2024-05-12T20:16:18.062019+00:00",
+    "eligible": true
+  },
+  {
+    "name": "mdurl",
+    "version": "0.1.2",
+    "artifact": "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl",
+    "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+    "released": "2022-08-14T12:40:09.779676+00:00",
+    "eligible": true
+  },
+  {
+    "name": "msal",
+    "version": "1.29.0",
+    "artifact": "https://files.pythonhosted.org/packages/c3/a7/5b51016902118052a1342e073138a319b758020cd66f3ee79a7e98e56d62/msal-1.29.0-py3-none-any.whl",
+    "sha256": "6b301e63f967481f0cc1a3a3bac0cf322b276855bc1b0955468d9deb3f33d511",
+    "released": "2024-06-22T02:14:05.570471+00:00",
+    "eligible": true
+  },
+  {
+    "name": "msal-extensions",
+    "version": "1.2.0",
+    "artifact": "https://files.pythonhosted.org/packages/2c/69/314d887a01599669fb330da14e5c6ff5f138609e322812a942a74ef9b765/msal_extensions-1.2.0-py3-none-any.whl",
+    "sha256": "cf5ba83a2113fa6dc011a254a72f1c223c88d7dfad74cc30617c4679a417704d",
+    "released": "2024-06-23T02:15:36.584867+00:00",
+    "eligible": true
+  },
+  {
+    "name": "networkx",
+    "version": "3.3",
+    "artifact": "https://files.pythonhosted.org/packages/38/e9/5f72929373e1a0e8d142a130f3f97e6ff920070f87f91c4e13e40e0fba5a/networkx-3.3-py3-none-any.whl",
+    "sha256": "28575580c6ebdaf4505b22c6256a2b9de86b316dc63ba9e93abde3d78dfdbcf2",
+    "released": "2024-04-06T12:59:44.283289+00:00",
+    "eligible": true
+  },
+  {
+    "name": "nltk",
+    "version": "3.8.1",
+    "artifact": "https://files.pythonhosted.org/packages/a6/0a/0d20d2c0f16be91b9fa32a77b76c60f9baf6eba419e5ef5deca17af9c582/nltk-3.8.1-py3-none-any.whl",
+    "sha256": "fd5c9109f976fa86bcadba8f91e47f5e9293bd034474752e92a520f81c93dda5",
+    "released": "2023-01-02T15:37:07.414618+00:00",
+    "eligible": true
+  },
+  {
+    "name": "numba",
+    "version": "0.60.0",
+    "artifact": "https://files.pythonhosted.org/packages/79/58/cb4ac5b8f7ec64200460aef1fed88258fb872ceef504ab1f989d2ff0f684/numba-0.60.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "sha256": "fe0b28abb8d70f8160798f4de9d486143200f34458d34c4a214114e445d7124e",
+    "released": "2024-06-13T18:10:37.295776+00:00",
+    "eligible": true
+  },
+  {
+    "name": "numpy",
+    "version": "1.26.4",
+    "artifact": "https://files.pythonhosted.org/packages/4b/d7/ecf66c1cd12dc28b4040b15ab4d17b773b87fa9d29ca16125de01adb36cd/numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "ffa75af20b44f8dba823498024771d5ac50620e6915abac414251bd971b4529f",
+    "released": "2024-02-05T23:49:25.361491+00:00",
+    "eligible": true
+  },
+  {
+    "name": "openai",
+    "version": "1.35.13",
+    "artifact": "https://files.pythonhosted.org/packages/42/15/75d29b74effd3ad479fd05c3072e2cac4155c49275e8d25e5ce02cc1466e/openai-1.35.13-py3-none-any.whl",
+    "sha256": "36ec3e93e0d1f243f69be85c89b9221a471c3e450dfd9df16c9829e3cdf63e60",
+    "released": "2024-07-10T13:24:56.380849+00:00",
+    "eligible": true
+  },
+  {
+    "name": "overrides",
+    "version": "7.7.0",
+    "artifact": "https://files.pythonhosted.org/packages/2c/ab/fc8290c6a4c722e5514d80f62b2dc4c4df1a68a41d1364e625c35990fcf3/overrides-7.7.0-py3-none-any.whl",
+    "sha256": "c7ed9d062f78b8e4c1a7b70bd8796b35ead4d9f510227ef9c5dc7626c60d7e49",
+    "released": "2024-01-27T21:01:31.393624+00:00",
+    "eligible": true
+  },
+  {
+    "name": "packaging",
+    "version": "24.1",
+    "artifact": "https://files.pythonhosted.org/packages/08/aa/cc0199a5f0ad350994d660967a8efb233fe0416e4639146c089643407ce6/packaging-24.1-py3-none-any.whl",
+    "sha256": "5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124",
+    "released": "2024-06-09T23:19:21.909058+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pandas",
+    "version": "2.2.2",
+    "artifact": "https://files.pythonhosted.org/packages/89/1b/12521efcbc6058e2673583bb096c2b5046a9df39bd73eca392c1efed24e5/pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "8635c16bf3d99040fdf3ca3db669a7250ddf49c55dc4aa8fe0ae0fa8d6dcc1f0",
+    "released": "2024-04-10T19:44:19.013554+00:00",
+    "eligible": true
+  },
+  {
+    "name": "partd",
+    "version": "1.4.2",
+    "artifact": "https://files.pythonhosted.org/packages/71/e7/40fb618334dcdf7c5a316c0e7343c5cd82d3d866edc100d98e29bc945ecd/partd-1.4.2-py3-none-any.whl",
+    "sha256": "978e4ac767ec4ba5b86c6eaa52e5a2a3bc748a2ca839e8cc798f1cc6ce6efb0f",
+    "released": "2024-05-06T19:51:39.271208+00:00",
+    "eligible": true
+  },
+  {
+    "name": "patsy",
+    "version": "0.5.6",
+    "artifact": "https://files.pythonhosted.org/packages/43/f3/1d311a09c34f14f5973bb0bb0dc3a6e007e1eda90b5492d082689936ca51/patsy-0.5.6-py2.py3-none-any.whl",
+    "sha256": "19056886fd8fa71863fa32f0eb090267f21fb74be00f19f5c70b2e9d76c883c6",
+    "released": "2024-01-04T18:55:57.282808+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pillow",
+    "version": "10.4.0",
+    "artifact": "https://files.pythonhosted.org/packages/b5/5b/6651c288b08df3b8c1e2f8c1152201e0b25d240e22ddade0f1e242fc9fa0/pillow-10.4.0-cp310-cp310-manylinux_2_28_x86_64.whl",
+    "sha256": "a985e028fc183bf12a77a8bbf36318db4238a3ded7fa9df1b9a133f1cb79f8fc",
+    "released": "2024-07-01T09:45:35.279495+00:00",
+    "eligible": true
+  },
+  {
+    "name": "portalocker",
+    "version": "2.10.0",
+    "artifact": "https://files.pythonhosted.org/packages/07/ff/52080172c7fdfa7c62f8cab014997178c19be9948607e977184dafc76522/portalocker-2.10.0-py3-none-any.whl",
+    "sha256": "48944147b2cd42520549bc1bb8fe44e220296e56f7c3d551bc6ecce69d9b0de1",
+    "released": "2024-06-22T22:49:05.355651+00:00",
+    "eligible": true
+  },
+  {
+    "name": "POT",
+    "version": "0.9.4",
+    "artifact": "https://files.pythonhosted.org/packages/bc/f3/a3aab04d7addcd2354bedf46e1cef5d87dc001575b8e78884f28e9dc3b0f/POT-0.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "dfee044f744b1722912654c8b905bc289ce160524db5ca0e853f1aa442ffea55",
+    "released": "2024-06-26T11:18:04.341270+00:00",
+    "eligible": true
+  },
+  {
+    "name": "psutil",
+    "version": "6.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/19/74/f59e7e0d392bc1070e9a70e2f9190d652487ac115bb16e2eff6b22ad1d24/psutil-6.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "5fd9a97c8e94059b0ef54a7d4baf13b405011176c3b6ff257c247cae0d560ecd",
+    "released": "2024-06-18T21:41:29.048203+00:00",
+    "eligible": true
+  },
+  {
+    "name": "py",
+    "version": "1.11.0",
+    "artifact": "https://files.pythonhosted.org/packages/f6/f0/10642828a8dfb741e5f3fbaac830550a518a775c7fff6f04a007259b0548/py-1.11.0-py2.py3-none-any.whl",
+    "sha256": "607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378",
+    "released": "2021-11-04T17:17:00.152107+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pyaml-env",
+    "version": "1.2.1",
+    "artifact": "https://files.pythonhosted.org/packages/d7/9b/eb5d41a8ec8891ca85bac75b409d83f116b852fd46520f19c24464cba032/pyaml_env-1.2.1-py3-none-any.whl",
+    "sha256": "2e7da2d4bba0629711ade1a41864e5e200c84ded896a3d27e9f560fae7311c36",
+    "released": "2022-12-06T09:36:52.974065+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pyarrow",
+    "version": "15.0.0",
+    "artifact": "https://files.pythonhosted.org/packages/d4/ca/ef67abb77f9dd51a0d3ff7fcebff58296068a046d7da352b9548070005ed/pyarrow-15.0.0-cp310-cp310-manylinux_2_28_x86_64.whl",
+    "sha256": "85239b9f93278e130d86c0e6bb455dcb66fc3fd891398b9d45ace8799a871a1e",
+    "released": "2024-01-21T14:59:22.669533+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pycparser",
+    "version": "2.22",
+    "artifact": "https://files.pythonhosted.org/packages/13/a3/a812df4e2dd5696d1f351d58b8fe16a405b234ad2886a0dab9183fb78109/pycparser-2.22-py3-none-any.whl",
+    "sha256": "c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc",
+    "released": "2024-03-30T13:22:20.476234+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pydantic",
+    "version": "2.8.2",
+    "artifact": "https://files.pythonhosted.org/packages/1f/fa/b7f815b8c9ad021c07f88875b601222ef5e70619391ade4a49234d12d278/pydantic-2.8.2-py3-none-any.whl",
+    "sha256": "73ee9fddd406dc318b885c7a2eab8a6472b68b8fb5ba8150949fc3db939f23c8",
+    "released": "2024-07-04T02:59:45.330287+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pydantic_core",
+    "version": "2.20.1",
+    "artifact": "https://files.pythonhosted.org/packages/ae/49/8a6fe79d35e2f3bea566d8ea0e4e6f436d4f749d7838c8e8c4c5148ae706/pydantic_core-2.20.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "3d482efec8b7dc6bfaedc0f166b2ce349df0011f5d2f1f25537ced4cfc34fd98",
+    "released": "2024-07-03T17:00:29.176569+00:00",
+    "eligible": true
+  },
+  {
+    "name": "Pygments",
+    "version": "2.18.0",
+    "artifact": "https://files.pythonhosted.org/packages/f7/3f/01c8b82017c199075f8f788d0d906b9ffbbc5a47dc9918a945e13d5a2bda/pygments-2.18.0-py3-none-any.whl",
+    "sha256": "b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a",
+    "released": "2024-05-04T13:41:57.345734+00:00",
+    "eligible": true
+  },
+  {
+    "name": "PyJWT",
+    "version": "2.8.0",
+    "artifact": "https://files.pythonhosted.org/packages/2b/4f/e04a8067c7c96c364cef7ef73906504e2f40d690811c021e1a1901473a19/PyJWT-2.8.0-py3-none-any.whl",
+    "sha256": "59127c392cc44c2da5bb3192169a91f429924e17aff6534d70fdc02ab3e04320",
+    "released": "2023-07-18T20:02:21.561091+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pylance",
+    "version": "0.13.0",
+    "artifact": "https://files.pythonhosted.org/packages/48/55/6aa07f7d8c1058ba8f9fb73f6d31173ca8806d25a37287ad230be0d6ec58/pylance-0.13.0-cp39-abi3-manylinux_2_28_x86_64.whl",
+    "sha256": "c51d4b6e59cf4dc97c11a35b299f11e80dbdf392e2d8dc498573c26474a3c19e",
+    "released": "2024-06-24T23:10:19.316085+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pynndescent",
+    "version": "0.5.13",
+    "artifact": "https://files.pythonhosted.org/packages/d2/53/d23a97e0a2c690d40b165d1062e2c4ccc796be458a1ce59f6ba030434663/pynndescent-0.5.13-py3-none-any.whl",
+    "sha256": "69aabb8f394bc631b6ac475a1c7f3994c54adf3f51cd63b2730fefba5771b949",
+    "released": "2024-06-17T15:48:31.184860+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pyparsing",
+    "version": "3.1.2",
+    "artifact": "https://files.pythonhosted.org/packages/9d/ea/6d76df31432a0e6fdf81681a895f009a4bb47b3c39036db3e1b528191d52/pyparsing-3.1.2-py3-none-any.whl",
+    "sha256": "f9db75911801ed778fe61bb643079ff86601aca99fcae6345aa67292038fb742",
+    "released": "2024-03-06T07:25:50.845795+00:00",
+    "eligible": true
+  },
+  {
+    "name": "python-dateutil",
+    "version": "2.9.0.post0",
+    "artifact": "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+    "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+    "released": "2024-03-01T18:36:18.570437+00:00",
+    "eligible": true
+  },
+  {
+    "name": "python-dotenv",
+    "version": "1.0.1",
+    "artifact": "https://files.pythonhosted.org/packages/6a/3e/b68c118422ec867fa7ab88444e1274aa40681c606d59ac27de5a5588f082/python_dotenv-1.0.1-py3-none-any.whl",
+    "sha256": "f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a",
+    "released": "2024-01-23T06:32:58.246675+00:00",
+    "eligible": true
+  },
+  {
+    "name": "pytz",
+    "version": "2024.1",
+    "artifact": "https://files.pythonhosted.org/packages/9c/3d/a121f284241f08268b21359bd425f7d4825cffc5ac5cd0e1b3d82ffd2b10/pytz-2024.1-py2.py3-none-any.whl",
+    "sha256": "328171f4e3623139da4983451950b28e95ac706e13f3f2630a879749e7a8b319",
+    "released": "2024-02-02T01:18:37.283025+00:00",
+    "eligible": true
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.1",
+    "artifact": "https://files.pythonhosted.org/packages/29/61/bf33c6c85c55bc45a29eee3195848ff2d518d84735eb0e2d8cb42e0d285e/PyYAML-6.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "ba336e390cd8e4d1739f42dfe9bb83a3cc2e80f567d8805e11b46f4a943f5515",
+    "released": "2023-07-17T23:57:25.272587+00:00",
+    "eligible": true
+  },
+  {
+    "name": "referencing",
+    "version": "0.35.1",
+    "artifact": "https://files.pythonhosted.org/packages/b7/59/2056f61236782a2c86b33906c025d4f4a0b17be0161b63b70fd9e8775d36/referencing-0.35.1-py3-none-any.whl",
+    "sha256": "eda6d3234d62814d1c64e305c1331c9a3a6132da475ab6382eaa997b21ee75de",
+    "released": "2024-05-01T20:26:02.078362+00:00",
+    "eligible": true
+  },
+  {
+    "name": "regex",
+    "version": "2024.5.15",
+    "artifact": "https://files.pythonhosted.org/packages/07/17/5d92509b4dccacf9767d8607112c19667e15db2428014440bae4356b8aff/regex-2024.5.15-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "1337b7dbef9b2f71121cdbf1e97e40de33ff114801263b275aafd75303bd62b5",
+    "released": "2024-05-15T16:13:06.959461+00:00",
+    "eligible": true
+  },
+  {
+    "name": "requests",
+    "version": "2.32.3",
+    "artifact": "https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl",
+    "sha256": "70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6",
+    "released": "2024-05-29T15:37:47.027275+00:00",
+    "eligible": true
+  },
+  {
+    "name": "retry",
+    "version": "0.9.2",
+    "artifact": "https://files.pythonhosted.org/packages/4b/0d/53aea75710af4528a25ed6837d71d117602b01946b307a3912cb3cfcbcba/retry-0.9.2-py2.py3-none-any.whl",
+    "sha256": "ccddf89761fa2c726ab29391837d4327f819ea14d244c232a1d24c67a2f98606",
+    "released": "2016-05-11T13:58:39.925822+00:00",
+    "eligible": true
+  },
+  {
+    "name": "rich",
+    "version": "13.7.1",
+    "artifact": "https://files.pythonhosted.org/packages/87/67/a37f6214d0e9fe57f6ae54b2956d550ca8365857f42a1ce0392bb21d9410/rich-13.7.1-py3-none-any.whl",
+    "sha256": "4edbae314f59eb482f54e9e30bf00d33350aaa94f4bfcd4e9e3110e64d0d7222",
+    "released": "2024-02-28T14:51:14.353506+00:00",
+    "eligible": true
+  },
+  {
+    "name": "rpds-py",
+    "version": "0.19.0",
+    "artifact": "https://files.pythonhosted.org/packages/b8/2a/319eecf21aa0e872a0ee8233507a2a42e02f4b732308834292458fe1302c/rpds_py-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "959179efb3e4a27610e8d54d667c02a9feaa86bbabaf63efa7faa4dfa780d4f1",
+    "released": "2024-07-08T14:01:05.129123+00:00",
+    "eligible": true
+  },
+  {
+    "name": "scikit-learn",
+    "version": "1.5.1",
+    "artifact": "https://files.pythonhosted.org/packages/f2/60/6c589c91e474721efdcec82ea9cc5c743359e52637e46c364ee5236666ef/scikit_learn-1.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "161808750c267b77b4a9603cf9c93579c7a74ba8486b1336034c2f1579546d21",
+    "released": "2024-07-03T09:11:22.053780+00:00",
+    "eligible": true
+  },
+  {
+    "name": "scipy",
+    "version": "1.12.0",
+    "artifact": "https://files.pythonhosted.org/packages/f5/aa/8e6071a5e4dca4ec68b5b22e4991ee74c59c5d372112b9c236ec1faff57d/scipy-1.12.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "5e32847e08da8d895ce09d108a494d9eb78974cf6de23063f93306a3e419960c",
+    "released": "2024-01-20T21:10:51.285050+00:00",
+    "eligible": true
+  },
+  {
+    "name": "seaborn",
+    "version": "0.13.2",
+    "artifact": "https://files.pythonhosted.org/packages/83/11/00d3c3dfc25ad54e731d91449895a79e4bf2384dc3ac01809010ba88f6d5/seaborn-0.13.2-py3-none-any.whl",
+    "sha256": "636f8336facf092165e27924f223d3c62ca560b1f2bb5dff7ab7fad265361987",
+    "released": "2024-01-25T13:21:49.598686+00:00",
+    "eligible": true
+  },
+  {
+    "name": "six",
+    "version": "1.16.0",
+    "artifact": "https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl",
+    "sha256": "8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254",
+    "released": "2021-05-05T14:18:17.237677+00:00",
+    "eligible": true
+  },
+  {
+    "name": "smart-open",
+    "version": "7.0.4",
+    "artifact": "https://files.pythonhosted.org/packages/65/12/cc24847b4b0b124501a33cd8f7963f79f6f6584bc7f2f4fc16bbbaa54c8f/smart_open-7.0.4-py3-none-any.whl",
+    "sha256": "4e98489932b3372595cddc075e6033194775165702887216b65eba760dfd8d47",
+    "released": "2024-03-26T08:42:56.979051+00:00",
+    "eligible": true
+  },
+  {
+    "name": "sniffio",
+    "version": "1.3.1",
+    "artifact": "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl",
+    "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2",
+    "released": "2024-02-25T23:20:01.196159+00:00",
+    "eligible": true
+  },
+  {
+    "name": "statsmodels",
+    "version": "0.14.2",
+    "artifact": "https://files.pythonhosted.org/packages/9f/06/2f1d2ba024c802e812fe9e85eebc06871d76f1f4e0bb2beb0faa22cbe330/statsmodels-0.14.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "10f2b7611a61adb7d596a6d239abdf1a4d5492b931b00d5ed23d32844d40e48e",
+    "released": "2024-04-17T10:21:02.126373+00:00",
+    "eligible": true
+  },
+  {
+    "name": "swifter",
+    "version": "1.4.0",
+    "artifact": "https://files.pythonhosted.org/packages/65/50/229383aa3bdf7b42fce40bf45c5431112da080499213044b9a87bb1ae441/swifter-1.4.0.tar.gz",
+    "sha256": "e1bb74476a21b3f07a17aa18c97fdcba8599726bd17da732f09dabcc50e26ba0",
+    "released": "2023-07-31T18:46:53.547690+00:00",
+    "eligible": true
+  },
+  {
+    "name": "tenacity",
+    "version": "8.5.0",
+    "artifact": "https://files.pythonhosted.org/packages/d2/3f/8ba87d9e287b9d385a02a7114ddcef61b26f86411e121c9003eb509a1773/tenacity-8.5.0-py3-none-any.whl",
+    "sha256": "b594c2a5945830c267ce6b79a166228323ed52718f30302c1359836112346687",
+    "released": "2024-07-05T07:25:29.591597+00:00",
+    "eligible": true
+  },
+  {
+    "name": "textual",
+    "version": "0.70.0",
+    "artifact": "https://files.pythonhosted.org/packages/df/02/12c76a9ef54fae1c0366a12feb856cf0657e7b2eacfdaebf3dfc2abfe1ab/textual-0.70.0-py3-none-any.whl",
+    "sha256": "774bf45782193760ca273b915fd685cada37d0836237d61dc57d5bcdbe2c7ddb",
+    "released": "2024-06-19T11:56:31.680770+00:00",
+    "eligible": true
+  },
+  {
+    "name": "threadpoolctl",
+    "version": "3.5.0",
+    "artifact": "https://files.pythonhosted.org/packages/4b/2c/ffbf7a134b9ab11a67b0cf0726453cedd9c5043a4fe7a35d1cefa9a1bcfb/threadpoolctl-3.5.0-py3-none-any.whl",
+    "sha256": "56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467",
+    "released": "2024-04-29T13:50:14.014558+00:00",
+    "eligible": true
+  },
+  {
+    "name": "tiktoken",
+    "version": "0.7.0",
+    "artifact": "https://files.pythonhosted.org/packages/e7/8c/7d1007557b343d5cf18349802e94d3a14397121e9105b4661f8cd753f9bf/tiktoken-0.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "5d4511c52caacf3c4981d1ae2df85908bd31853f33d30b345c8b6830763f769c",
+    "released": "2024-05-13T18:02:37.583160+00:00",
+    "eligible": true
+  },
+  {
+    "name": "toolz",
+    "version": "0.12.1",
+    "artifact": "https://files.pythonhosted.org/packages/b7/8a/d82202c9f89eab30f9fc05380daae87d617e2ad11571ab23d7c13a29bb54/toolz-0.12.1-py3-none-any.whl",
+    "sha256": "d22731364c07d72eea0a0ad45bafb2c2937ab6fd38a3507bf55eae8744aa7d85",
+    "released": "2024-01-24T03:28:25.970077+00:00",
+    "eligible": true
+  },
+  {
+    "name": "tqdm",
+    "version": "4.66.4",
+    "artifact": "https://files.pythonhosted.org/packages/18/eb/fdb7eb9e48b7b02554e1664afd3bd3f117f6b6d6c5881438a0b055554f9b/tqdm-4.66.4-py3-none-any.whl",
+    "sha256": "b75ca56b413b030bc3f00af51fd2c1a1a5eac6a0c1cca83cbb37a5c52abce644",
+    "released": "2024-05-02T22:42:09.553742+00:00",
+    "eligible": true
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.12.2",
+    "artifact": "https://files.pythonhosted.org/packages/26/9f/ad63fc0248c5379346306f8668cda6e2e2e9c95e01216d2b8ffd9ff037d0/typing_extensions-4.12.2-py3-none-any.whl",
+    "sha256": "04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d",
+    "released": "2024-06-07T18:52:13.582461+00:00",
+    "eligible": true
+  },
+  {
+    "name": "tzdata",
+    "version": "2024.1",
+    "artifact": "https://files.pythonhosted.org/packages/65/58/f9c9e6be752e9fcb8b6a0ee9fb87e6e7a1f6bcab2cdc73f02bb7ba91ada0/tzdata-2024.1-py2.py3-none-any.whl",
+    "sha256": "9068bc196136463f5245e51efda838afa15aaeca9903f49050dfa2679db4d252",
+    "released": "2024-02-11T23:22:38.223335+00:00",
+    "eligible": true
+  },
+  {
+    "name": "uc-micro-py",
+    "version": "1.0.3",
+    "artifact": "https://files.pythonhosted.org/packages/37/87/1f677586e8ac487e29672e4b17455758fce261de06a0d086167bb760361a/uc_micro_py-1.0.3-py3-none-any.whl",
+    "sha256": "db1dffff340817673d7b466ec86114a9dc0e9d4d9b5ba229d9d60e5c12600cd5",
+    "released": "2024-02-09T16:52:00.371494+00:00",
+    "eligible": true
+  },
+  {
+    "name": "umap-learn",
+    "version": "0.5.6",
+    "artifact": "https://files.pythonhosted.org/packages/d1/1b/46802a050b1c55d10c4f59fc6afd2b45ac9b4f62b2e12092d3f599286f14/umap_learn-0.5.6-py3-none-any.whl",
+    "sha256": "881cc0c2ee845b790bf0455aa1664f9f68b838d9d0fe12a1291b85c5a559c913",
+    "released": "2024-04-03T16:53:16.834274+00:00",
+    "eligible": true
+  },
+  {
+    "name": "urllib3",
+    "version": "2.2.2",
+    "artifact": "https://files.pythonhosted.org/packages/ca/1c/89ffc63a9605b583d5df2be791a27bc1a42b7c32bab68d3c8f2f73a98cd4/urllib3-2.2.2-py3-none-any.whl",
+    "sha256": "a448b2f64d686155468037e1ace9f2d2199776e17f0a46610480d311f73e3472",
+    "released": "2024-06-17T13:40:07.795777+00:00",
+    "eligible": true
+  },
+  {
+    "name": "uvloop",
+    "version": "0.19.0",
+    "artifact": "https://files.pythonhosted.org/packages/ab/ed/12729fba5e3b7e02ee70b3ea230b88e60a50375cf63300db22607694d2f0/uvloop-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "5a05128d315e2912791de6088c34136bfcdd0c7cbc1cf85fd6fd1bb321b7c849",
+    "released": "2023-10-22T22:03:01.043459+00:00",
+    "eligible": true
+  },
+  {
+    "name": "wrapt",
+    "version": "1.16.0",
+    "artifact": "https://files.pythonhosted.org/packages/49/83/b40bc1ad04a868b5b5bcec86349f06c1ee1ea7afe51dc3e46131e4f39308/wrapt-1.16.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "ac83a914ebaf589b69f7d0a1277602ff494e21f4c2f743313414378f8f50a4cf",
+    "released": "2023-11-09T06:31:42.566738+00:00",
+    "eligible": true
+  },
+  {
+    "name": "zipp",
+    "version": "3.19.2",
+    "artifact": "https://files.pythonhosted.org/packages/20/38/f5c473fe9b90c8debdd29ea68d5add0289f1936d6f923b6b9cc0b931194c/zipp-3.19.2-py3-none-any.whl",
+    "sha256": "f091755f667055f2d02b32c53771a7a6c8b47e1fdbc4b72a8b9072b3eef8015c",
+    "released": "2024-06-04T17:21:07.146405+00:00",
+    "eligible": true
+  }
+]

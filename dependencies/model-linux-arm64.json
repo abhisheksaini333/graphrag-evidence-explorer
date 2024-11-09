@@ -1,0 +1,186 @@
+[
+  {
+    "name": "certifi",
+    "version": "2024.6.2",
+    "artifact": "https://files.pythonhosted.org/packages/5b/11/1e78951465b4a225519b8c3ad29769c49e0d8d157a070f681d5b6d64737f/certifi-2024.6.2-py3-none-any.whl",
+    "sha256": "ddc6c8ce995e6987e7faf5e3f1b02b302836a0e5d98ece18392cb1a36c72ad56",
+    "released": "2024-06-02T01:45:23.134166Z",
+    "source": "https://pypi.org/pypi/certifi/2024.6.2/json"
+  },
+  {
+    "name": "charset-normalizer",
+    "version": "3.3.2",
+    "artifact": "https://files.pythonhosted.org/packages/b8/60/e2f67915a51be59d4539ed189eb0a2b0d292bf79270410746becb32bc2c3/charset_normalizer-3.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+    "sha256": "6897af51655e3691ff853668779c7bad41579facacf5fd7253b0133308cf000d",
+    "released": "2023-11-01T04:02:36.213638Z",
+    "source": "https://pypi.org/pypi/charset-normalizer/3.3.2/json"
+  },
+  {
+    "name": "filelock",
+    "version": "3.14.0",
+    "artifact": "https://files.pythonhosted.org/packages/41/24/0b023b6537dfc9bae2c779353998e3e99ac7dfff4222fc6126650e93c3f3/filelock-3.14.0-py3-none-any.whl",
+    "sha256": "43339835842f110ca7ae60f1e1c160714c5a6afd15a2873419ab185334975c0f",
+    "released": "2024-04-29T15:59:29.514722Z",
+    "source": "https://pypi.org/pypi/filelock/3.14.0/json"
+  },
+  {
+    "name": "fsspec",
+    "version": "2024.6.0",
+    "artifact": "https://files.pythonhosted.org/packages/8f/df/de2c06b316142063b6ccccc97cdc54185e3af771aa4f056d56f0db0e3466/fsspec-2024.6.0-py3-none-any.whl",
+    "sha256": "58d7122eb8a1a46f7f13453187bfea4972d66bf01618d37366521b1998034cee",
+    "released": "2024-06-04T00:49:10.164833Z",
+    "source": "https://pypi.org/pypi/fsspec/2024.6.0/json"
+  },
+  {
+    "name": "huggingface-hub",
+    "version": "0.23.2",
+    "artifact": "https://files.pythonhosted.org/packages/78/71/6ce4136149cb42b98599d49c39b3a39dd6858b5f9307490998c40e26a51e/huggingface_hub-0.23.2-py3-none-any.whl",
+    "sha256": "48727a16e704d409c4bb5913613308499664f22a99743435dc3a13b23c485827",
+    "released": "2024-05-27T08:30:13.042584Z",
+    "source": "https://pypi.org/pypi/huggingface-hub/0.23.2/json"
+  },
+  {
+    "name": "idna",
+    "version": "3.7",
+    "artifact": "https://files.pythonhosted.org/packages/e5/3e/741d8c82801c347547f8a2a06aa57dbb1992be9e948df2ea0eda2c8b79e8/idna-3.7-py3-none-any.whl",
+    "sha256": "82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0",
+    "released": "2024-04-11T03:34:41.447563Z",
+    "source": "https://pypi.org/pypi/idna/3.7/json"
+  },
+  {
+    "name": "Jinja2",
+    "version": "3.1.4",
+    "artifact": "https://files.pythonhosted.org/packages/31/80/3a54838c3fb461f6fec263ebf3a3a41771bd05190238de3486aae8540c36/jinja2-3.1.4-py3-none-any.whl",
+    "sha256": "bc5dd2abb727a5319567b7a813e6a2e7318c39f4f487cfe6c89c6f9c7d25197d",
+    "released": "2024-05-05T23:41:59.928923Z",
+    "source": "https://pypi.org/pypi/Jinja2/3.1.4/json"
+  },
+  {
+    "name": "MarkupSafe",
+    "version": "2.1.5",
+    "artifact": "https://files.pythonhosted.org/packages/0a/7b/85681ae3c33c385b10ac0f8dd025c30af83c78cec1c37a6aa3b55e67f5ec/MarkupSafe-2.1.5-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+    "sha256": "e61659ba32cf2cf1481e575d0462554625196a1f2fc06a1c777d3f48e8865d46",
+    "released": "2024-02-02T16:30:08.310589Z",
+    "source": "https://pypi.org/pypi/MarkupSafe/2.1.5/json"
+  },
+  {
+    "name": "mpmath",
+    "version": "1.3.0",
+    "artifact": "https://files.pythonhosted.org/packages/43/e3/7d92a15f894aa0c9c4b49b8ee9ac9850d6e63b03c9c32c0367a13ae62209/mpmath-1.3.0-py3-none-any.whl",
+    "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c",
+    "released": "2023-03-07T16:47:09.197171Z",
+    "source": "https://pypi.org/pypi/mpmath/1.3.0/json"
+  },
+  {
+    "name": "networkx",
+    "version": "3.3",
+    "artifact": "https://files.pythonhosted.org/packages/38/e9/5f72929373e1a0e8d142a130f3f97e6ff920070f87f91c4e13e40e0fba5a/networkx-3.3-py3-none-any.whl",
+    "sha256": "28575580c6ebdaf4505b22c6256a2b9de86b316dc63ba9e93abde3d78dfdbcf2",
+    "released": "2024-04-06T12:59:44.283289Z",
+    "source": "https://pypi.org/pypi/networkx/3.3/json"
+  },
+  {
+    "name": "numpy",
+    "version": "1.26.4",
+    "artifact": "https://files.pythonhosted.org/packages/fc/a5/4beee6488160798683eed5bdb7eead455892c3b4e1f78d79d8d3f3b084ac/numpy-1.26.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+    "sha256": "d209d8969599b27ad20994c8e41936ee0964e6da07478d6c35016bc386b66ad4",
+    "released": "2024-02-05T23:48:54.098373Z",
+    "source": "https://pypi.org/pypi/numpy/1.26.4/json"
+  },
+  {
+    "name": "packaging",
+    "version": "24.0",
+    "artifact": "https://files.pythonhosted.org/packages/49/df/1fceb2f8900f8639e278b056416d49134fb8d84c5942ffaa01ad34782422/packaging-24.0-py3-none-any.whl",
+    "sha256": "2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5",
+    "released": "2024-03-10T09:39:25.947088Z",
+    "source": "https://pypi.org/pypi/packaging/24.0/json"
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.1",
+    "artifact": "https://files.pythonhosted.org/packages/f1/26/55e4f21db1f72eaef092015d9017c11510e7e6301c62a6cfee91295d13c6/PyYAML-6.0.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+    "sha256": "69b023b2b4daa7548bcfbd4aa3da05b3a74b772db9e23b982788168117739938",
+    "released": "2023-07-17T23:57:13.144787Z",
+    "source": "https://pypi.org/pypi/PyYAML/6.0.1/json"
+  },
+  {
+    "name": "regex",
+    "version": "2024.5.15",
+    "artifact": "https://files.pythonhosted.org/packages/05/42/0916a746d6a9dcae676df165ff8e6b3d565a3027bfdb854ad92370434bee/regex-2024.5.15-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+    "sha256": "5eaa7ddaf517aa095fa8da0b5015c44d03da83f5bd49c87961e3c997daed0de7",
+    "released": "2024-05-15T16:12:56.402773Z",
+    "source": "https://pypi.org/pypi/regex/2024.5.15/json"
+  },
+  {
+    "name": "requests",
+    "version": "2.32.3",
+    "artifact": "https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl",
+    "sha256": "70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6",
+    "released": "2024-05-29T15:37:47.027275Z",
+    "source": "https://pypi.org/pypi/requests/2.32.3/json"
+  },
+  {
+    "name": "safetensors",
+    "version": "0.4.3",
+    "artifact": "https://files.pythonhosted.org/packages/e9/35/f73397a7745f954ef44d6b2416676c743a3d53447336b0da1d2b19c688ca/safetensors-0.4.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+    "sha256": "70a5319ef409e7f88686a46607cbc3c428271069d8b770076feaf913664a07ac",
+    "released": "2024-04-15T16:02:42.804820Z",
+    "source": "https://pypi.org/pypi/safetensors/0.4.3/json"
+  },
+  {
+    "name": "sympy",
+    "version": "1.12.1",
+    "artifact": "https://files.pythonhosted.org/packages/61/53/e18c8c97d0b2724d85c9830477e3ebea3acf1dcdc6deb344d5d9c93a9946/sympy-1.12.1-py3-none-any.whl",
+    "sha256": "9b2cbc7f1a640289430e13d2a56f02f867a1da0190f2f99d8968c2f74da0e515",
+    "released": "2024-05-29T17:56:05.445683Z",
+    "source": "https://pypi.org/pypi/sympy/1.12.1/json"
+  },
+  {
+    "name": "tokenizers",
+    "version": "0.19.1",
+    "artifact": "https://files.pythonhosted.org/packages/50/4e/2e5549a26dc6f9e434f83bebf16c2d7dc9dc3477cc0ec8b23ede4d465b90/tokenizers-0.19.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+    "sha256": "453e4422efdfc9c6b6bf2eae00d5e323f263fff62b29a8c9cd526c5003f3f642",
+    "released": "2024-04-17T21:36:12.283253Z",
+    "source": "https://pypi.org/pypi/tokenizers/0.19.1/json"
+  },
+  {
+    "name": "torch",
+    "version": "2.3.0",
+    "artifact": "https://files.pythonhosted.org/packages/dc/82/7ab793eba3f4c3c84244e4c578ea838536d526db01c787448e8177404598/torch-2.3.0-cp310-cp310-manylinux2014_aarch64.whl",
+    "sha256": "09c81c5859a5b819956c6925a405ef1cdda393c9d8a01ce3851453f699d3358c",
+    "released": "2024-04-24T15:47:30.218825Z",
+    "source": "https://pypi.org/pypi/torch/2.3.0/json"
+  },
+  {
+    "name": "tqdm",
+    "version": "4.66.4",
+    "artifact": "https://files.pythonhosted.org/packages/18/eb/fdb7eb9e48b7b02554e1664afd3bd3f117f6b6d6c5881438a0b055554f9b/tqdm-4.66.4-py3-none-any.whl",
+    "sha256": "b75ca56b413b030bc3f00af51fd2c1a1a5eac6a0c1cca83cbb37a5c52abce644",
+    "released": "2024-05-02T22:42:09.553742Z",
+    "source": "https://pypi.org/pypi/tqdm/4.66.4/json"
+  },
+  {
+    "name": "transformers",
+    "version": "4.41.2",
+    "artifact": "https://files.pythonhosted.org/packages/d9/b7/98f821d70102e2d38483bbb7013a689d2d646daa4495377bc910374ad727/transformers-4.41.2-py3-none-any.whl",
+    "sha256": "05555d20e43f808de1ef211ab64803cdb513170cef70d29a888b589caebefc67",
+    "released": "2024-05-30T17:59:20.944587Z",
+    "source": "https://pypi.org/pypi/transformers/4.41.2/json"
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.11.0",
+    "artifact": "https://files.pythonhosted.org/packages/01/f3/936e209267d6ef7510322191003885de524fc48d1b43269810cd589ceaf5/typing_extensions-4.11.0-py3-none-any.whl",
+    "sha256": "c1f94d72897edaf4ce775bb7558d5b79d8126906a14ea5ed1635921406c0387a",
+    "released": "2024-04-05T12:35:44.388382Z",
+    "source": "https://pypi.org/pypi/typing_extensions/4.11.0/json"
+  },
+  {
+    "name": "urllib3",
+    "version": "2.2.1",
+    "artifact": "https://files.pythonhosted.org/packages/a2/73/a68704750a7679d0b6d3ad7aa8d4da8e14e151ae82e6fee774e6e0d05ec8/urllib3-2.2.1-py3-none-any.whl",
+    "sha256": "450b20ec296a467077128bff42b73080516e71b56ff59a60a02bef2232c4fa9d",
+    "released": "2024-02-18T03:55:54.704486Z",
+    "source": "https://pypi.org/pypi/urllib3/2.2.1/json"
+  }
+]
