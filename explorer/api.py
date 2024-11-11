@@ -146,6 +146,8 @@ def main():
     from .runtime_control import OperatorLease,recover_queries
     with OperatorLease(args.database):
         store=Store(args.database);recover_queries(store)
+        # Import the scientific runtime before announcing API readiness.
+        build_graph({'generation':0,'claims':[],'vectors':[]})
         server=create_server(store,ModelClient(args.model_url),args.host,args.port,args.static)
         print(f'Evidence Explorer listening on {args.host}:{args.port}',flush=True)
         try:server.serve_forever()
