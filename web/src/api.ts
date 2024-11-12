@@ -1,7 +1,8 @@
 export async function api<T = any>(path: string, body?: unknown): Promise<T> {
   const response = await fetch(`/api${path}`, { method: body === undefined ? 'GET' : 'POST', headers: { 'Content-Type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body) });
-  const value = await response.json();
-  if (!response.ok) throw new Error(value.message || value.error || 'Request failed');
+  const value = await response.json().catch(() => null);
+  if (!response.ok) throw new Error(value?.message || value?.error || `Request failed (${response.status}). Try again.`);
+  if (value === null) throw new Error('The server returned an unreadable response. Refresh the workspace.');
   return value;
 }
 export interface Document { id: string; revision: number; title: string; characters: number; text?: string }
