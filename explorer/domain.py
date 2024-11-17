@@ -9,8 +9,12 @@ class Invalid(ValueError):
 
 
 def identifier(value):
-    if not isinstance(value, str) or not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}", value):
-        raise Invalid("Use an identifier of 1–80 letters, digits, underscores or hyphens")
+    if not isinstance(value, str) or not re.fullmatch(
+        r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}", value
+    ):
+        raise Invalid(
+            "Use an identifier of 1–80 letters, digits, underscores or hyphens"
+        )
     return value
 
 
@@ -36,9 +40,11 @@ class DocumentInput:
     def parse(cls, value):
         if not isinstance(value, dict):
             raise Invalid("Document must be an object")
-        return cls(identifier(value.get("id")),
-                   bounded_text(value.get("title"), "Title", 160),
-                   bounded_text(value.get("text"), "Document text", 50000))
+        return cls(
+            identifier(value.get("id")),
+            bounded_text(value.get("title"), "Title", 160),
+            bounded_text(value.get("text"), "Document text", 50000),
+        )
 
     @property
     def content_hash(self):

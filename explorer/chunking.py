@@ -27,11 +27,15 @@ def chunk_document(document_id, revision, text, size=600, overlap=80):
     while start < len(text):
         end = min(start + size, len(text))
         if end < len(text):
-            boundary = max(text.rfind("\n", start + size // 2, end),
-                           text.rfind(" ", start + size // 2, end))
+            boundary = max(
+                text.rfind("\n", start + size // 2, end),
+                text.rfind(" ", start + size // 2, end),
+            )
             if boundary > start:
                 end = boundary + 1
-        digest = hashlib.sha256(f"{document_id}:{revision}:{start}:{end}".encode()).hexdigest()[:32]
+        digest = hashlib.sha256(
+            f"{document_id}:{revision}:{start}:{end}".encode()
+        ).hexdigest()[:32]
         chunks.append(Chunk(digest, document_id, revision, start, end, text[start:end]))
         if end == len(text):
             break

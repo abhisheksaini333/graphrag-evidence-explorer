@@ -18,7 +18,7 @@ CREATE INDEX IF NOT EXISTS jobs_status ON jobs(status,created_at);
 
 
 def lease_duration(value):
-    if type(value) not in (int,float) or not 1 <= value <= 300:
+    if type(value) not in (int, float) or not 1 <= value <= 300:
         raise Invalid("Lease must be between 1 and 300 seconds")
     return value
 
@@ -32,21 +32,50 @@ class JobQueue:
     def enqueue(self, document_id, profile, budget=None):
         bounded_text(profile, "Index profile", 160)
         if budget is not None:
-            from .budget import ModelBudget,positive_int
-            positive_int(budget[0],128,'Call budget');positive_int(budget[1],262144,'Token budget')
+            from .budget import ModelBudget, positive_int
+
+            positive_int(budget[0], 128, "Call budget")
+            positive_int(budget[1], 262144, "Token budget")
             ModelBudget(self)
         with self.store.transaction() as db:
-            doc = db.execute("SELECT * FROM documents WHERE id=? AND deleted=0", (document_id,)).fetchone()
+            doc = db.execute(
+                "SELECT * FROM documents WHERE id=? AND deleted=0", (document_id,)
+            ).fetchone()
             if not doc:
                 raise Missing("Document is unavailable")
-            job_id = hashlib.sha256(f"{document_id}:{doc['revision']}:{profile}".encode()).hexdigest()[:32]
-            db.execute("INSERT OR IGNORE INTO jobs(id,document_id,revision,profile,status,created_at) VALUES (?,?,?,?,?,?)", (job_id,document_id,doc['revision'],profile,'queued',self.store.clock()))
+            job_id = hashlib.sha256(
+                f"{document_id}:{doc['revision']}:{profile}".encode()
+            ).hexdigest()[:32]
+            db.execute(
+                "INSERT OR IGNORE INTO jobs(id,document_id,revision,profile,status,created_at) VALUES (?,?,?,?,?,?)",
+                (
+                    job_id,
+                    document_id,
+                    doc["revision"],
+                    profile,
+                    "queued",
+                    self.store.clock(),
+                ),
+            )
             if budget is not None:
-                old=db.execute('SELECT * FROM budgets WHERE job_id=?',(job_id,)).fetchone()
-                if old and (old['max_calls'],old['max_tokens'])!=tuple(budget) and db.execute('SELECT 1 FROM model_calls WHERE job_id=? LIMIT 1',(job_id,)).fetchone():
-                    raise Conflict('An active usage budget is immutable')
-                db.execute('INSERT INTO budgets VALUES (?,?,?) ON CONFLICT(job_id) DO UPDATE SET max_calls=excluded.max_calls,max_tokens=excluded.max_tokens',(job_id,*budget))
-            return dict(db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone())
+                old = db.execute(
+                    "SELECT * FROM budgets WHERE job_id=?", (job_id,)
+                ).fetchone()
+                if (
+                    old
+                    and (old["max_calls"], old["max_tokens"]) != tuple(budget)
+                    and db.execute(
+                        "SELECT 1 FROM model_calls WHERE job_id=? LIMIT 1", (job_id,)
+                    ).fetchone()
+                ):
+                    raise Conflict("An active usage budget is immutable")
+                db.execute(
+                    "INSERT INTO budgets VALUES (?,?,?) ON CONFLICT(job_id) DO UPDATE SET max_calls=excluded.max_calls,max_tokens=excluded.max_tokens",
+                    (job_id, *budget),
+                )
+            return dict(
+                db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone()
+            )
 
     def get(self, job_id):
         with self.store.connect() as db:
@@ -57,42 +86,70 @@ class JobQueue:
 
     def list(self):
         with self.store.connect() as db:
-            return [dict(row) for row in db.execute("SELECT * FROM jobs ORDER BY created_at DESC,id LIMIT 200")]
+            return [
+                dict(row)
+                for row in db.execute(
+                    "SELECT * FROM jobs ORDER BY created_at DESC,id LIMIT 200"
+                )
+            ]
 
     def claim(self, worker, lease_seconds=120):
         bounded_text(worker, "Worker", 100)
         lease_duration(lease_seconds)
         now = self.store.clock()
         with self.store.transaction() as db:
-            db.execute("UPDATE jobs SET status='superseded',lease_token=NULL,lease_until=0,error='source_changed' WHERE status IN ('queued','running') AND NOT EXISTS (SELECT 1 FROM documents d WHERE d.id=jobs.document_id AND d.revision=jobs.revision AND d.deleted=0)")
-            db.execute("UPDATE jobs SET status=CASE WHEN attempt>=3 THEN 'failed' ELSE 'queued' END,error=CASE WHEN attempt>=3 THEN 'lease_exhausted' ELSE 'worker_interrupted' END,lease_token=NULL,lease_until=0 WHERE status='running' AND lease_until<=?", (now,))
-            row = db.execute("SELECT * FROM jobs WHERE status='queued' ORDER BY created_at,id LIMIT 1").fetchone()
+            db.execute(
+                "UPDATE jobs SET status='superseded',lease_token=NULL,lease_until=0,error='source_changed' WHERE status IN ('queued','running') AND NOT EXISTS (SELECT 1 FROM documents d WHERE d.id=jobs.document_id AND d.revision=jobs.revision AND d.deleted=0)"
+            )
+            db.execute(
+                "UPDATE jobs SET status=CASE WHEN attempt>=3 THEN 'failed' ELSE 'queued' END,error=CASE WHEN attempt>=3 THEN 'lease_exhausted' ELSE 'worker_interrupted' END,lease_token=NULL,lease_until=0 WHERE status='running' AND lease_until<=?",
+                (now,),
+            )
+            row = db.execute(
+                "SELECT * FROM jobs WHERE status='queued' ORDER BY created_at,id LIMIT 1"
+            ).fetchone()
             if not row:
                 return None
             token = uuid.uuid4().hex
-            db.execute("UPDATE jobs SET status='running',attempt=attempt+1,worker=?,lease_token=?,lease_until=?,error=NULL WHERE id=?", (worker,token,now+lease_seconds,row['id']))
-            return dict(db.execute("SELECT * FROM jobs WHERE id=?", (row['id'],)).fetchone())
+            db.execute(
+                "UPDATE jobs SET status='running',attempt=attempt+1,worker=?,lease_token=?,lease_until=?,error=NULL WHERE id=?",
+                (worker, token, now + lease_seconds, row["id"]),
+            )
+            return dict(
+                db.execute("SELECT * FROM jobs WHERE id=?", (row["id"],)).fetchone()
+            )
 
     def require_owner(self, db, job_id, token):
-        row = db.execute("SELECT j.* FROM jobs j JOIN documents d ON d.id=j.document_id AND d.revision=j.revision WHERE j.id=? AND j.status='running' AND j.lease_token=? AND j.lease_until>? AND d.deleted=0", (job_id,token,self.store.clock())).fetchone()
+        row = db.execute(
+            "SELECT j.* FROM jobs j JOIN documents d ON d.id=j.document_id AND d.revision=j.revision WHERE j.id=? AND j.status='running' AND j.lease_token=? AND j.lease_until>? AND d.deleted=0",
+            (job_id, token, self.store.clock()),
+        ).fetchone()
         if not row:
-            raise Conflict("Index ownership expired, was cancelled, or its source changed")
+            raise Conflict(
+                "Index ownership expired, was cancelled, or its source changed"
+            )
         return dict(row)
 
     def heartbeat(self, job_id, token, lease_seconds=120):
         lease_duration(lease_seconds)
         with self.store.transaction() as db:
-            self.require_owner(db,job_id,token)
-            db.execute("UPDATE jobs SET lease_until=? WHERE id=?", (self.store.clock()+lease_seconds,job_id))
+            self.require_owner(db, job_id, token)
+            db.execute(
+                "UPDATE jobs SET lease_until=? WHERE id=?",
+                (self.store.clock() + lease_seconds, job_id),
+            )
 
     def finish(self, job_id, token, status, error=None):
-        if status not in ('complete','failed'):
+        if status not in ("complete", "failed"):
             raise Invalid("Invalid job completion state")
         if error is not None:
-            bounded_text(error,"Error code",80)
+            bounded_text(error, "Error code", 80)
         with self.store.transaction() as db:
-            self.require_owner(db,job_id,token)
-            db.execute("UPDATE jobs SET status=?,error=?,lease_token=NULL,lease_until=0 WHERE id=?", (status,error,job_id))
+            self.require_owner(db, job_id, token)
+            db.execute(
+                "UPDATE jobs SET status=?,error=?,lease_token=NULL,lease_until=0 WHERE id=?",
+                (status, error, job_id),
+            )
             if status == "complete":
                 self.store._bump_generation(db)
 
@@ -101,15 +158,29 @@ class JobQueue:
             row = db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone()
             if not row:
                 raise Missing("Index job is unavailable")
-            if row['status'] not in ('queued','running','cancelled'):
+            if row["status"] not in ("queued", "running", "cancelled"):
                 raise Conflict("Only pending indexing can be cancelled")
-            db.execute("UPDATE jobs SET status='cancelled',lease_token=NULL,lease_until=0,error='operator_cancelled' WHERE id=?", (job_id,))
+            db.execute(
+                "UPDATE jobs SET status='cancelled',lease_token=NULL,lease_until=0,error='operator_cancelled' WHERE id=?",
+                (job_id,),
+            )
         return self.get(job_id)
 
     def retry(self, job_id):
         with self.store.transaction() as db:
-            row = db.execute("SELECT j.* FROM jobs j JOIN documents d ON d.id=j.document_id AND d.revision=j.revision WHERE j.id=? AND d.deleted=0", (job_id,)).fetchone()
-            if not row or row['status'] not in ('failed','cancelled') or row['attempt'] >= 3:
-                raise Conflict("Retry requires a current failed/cancelled job with attempts remaining")
-            db.execute("UPDATE jobs SET status='queued',error=NULL WHERE id=?", (job_id,))
+            row = db.execute(
+                "SELECT j.* FROM jobs j JOIN documents d ON d.id=j.document_id AND d.revision=j.revision WHERE j.id=? AND d.deleted=0",
+                (job_id,),
+            ).fetchone()
+            if (
+                not row
+                or row["status"] not in ("failed", "cancelled")
+                or row["attempt"] >= 3
+            ):
+                raise Conflict(
+                    "Retry requires a current failed/cancelled job with attempts remaining"
+                )
+            db.execute(
+                "UPDATE jobs SET status='queued',error=NULL WHERE id=?", (job_id,)
+            )
         return self.get(job_id)

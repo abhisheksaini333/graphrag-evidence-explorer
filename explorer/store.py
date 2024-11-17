@@ -67,49 +67,94 @@ class Store:
 
     def generation(self):
         with self.connect() as db:
-            return db.execute("SELECT value FROM metadata WHERE key='generation'").fetchone()[0]
+            return db.execute(
+                "SELECT value FROM metadata WHERE key='generation'"
+            ).fetchone()[0]
 
     @staticmethod
     def _bump_generation(db):
         db.execute("UPDATE metadata SET value=value+1 WHERE key='generation'")
 
     def put_document(self, document, expected_revision=None):
-        if expected_revision is not None and (type(expected_revision) is not int or expected_revision < 0):
+        if expected_revision is not None and (
+            type(expected_revision) is not int or expected_revision < 0
+        ):
             raise Invalid("Expected revision must be a nonnegative integer")
         with self.transaction() as db:
-            old = db.execute("SELECT * FROM documents WHERE id=?", (document.id,)).fetchone()
-            if old and old['revision'] != expected_revision:
+            old = db.execute(
+                "SELECT * FROM documents WHERE id=?", (document.id,)
+            ).fetchone()
+            if old and old["revision"] != expected_revision:
                 raise Conflict("Document changed; reload its current revision")
-            if not old and expected_revision not in (None,0):
+            if not old and expected_revision not in (None, 0):
                 raise Conflict("Document does not have the expected revision")
-            if old and not old['deleted']:
-                previous = db.execute("SELECT * FROM revisions WHERE document_id=? AND revision=?", (document.id,old['revision'])).fetchone()
-                if previous['title'] == document.title and previous['text'] == document.text:
-                    return {'id':document.id,'revision':old['revision'],'changed':False}
-            revision = old['revision'] + 1 if old else 1
-            db.execute("INSERT INTO documents VALUES (?,?,0,?) ON CONFLICT(id) DO UPDATE SET revision=excluded.revision,deleted=0,updated_at=excluded.updated_at", (document.id,revision,self.clock()))
-            db.execute("INSERT INTO revisions VALUES (?,?,?,?,?)", (document.id,revision,document.title,document.text,document.content_hash))
+            if old and not old["deleted"]:
+                previous = db.execute(
+                    "SELECT * FROM revisions WHERE document_id=? AND revision=?",
+                    (document.id, old["revision"]),
+                ).fetchone()
+                if (
+                    previous["title"] == document.title
+                    and previous["text"] == document.text
+                ):
+                    return {
+                        "id": document.id,
+                        "revision": old["revision"],
+                        "changed": False,
+                    }
+            revision = old["revision"] + 1 if old else 1
+            db.execute(
+                "INSERT INTO documents VALUES (?,?,0,?) ON CONFLICT(id) DO UPDATE SET revision=excluded.revision,deleted=0,updated_at=excluded.updated_at",
+                (document.id, revision, self.clock()),
+            )
+            db.execute(
+                "INSERT INTO revisions VALUES (?,?,?,?,?)",
+                (
+                    document.id,
+                    revision,
+                    document.title,
+                    document.text,
+                    document.content_hash,
+                ),
+            )
             for chunk in chunk_document(document.id, revision, document.text):
-                db.execute("INSERT INTO chunks VALUES (?,?,?,?,?,?)", (chunk.id,chunk.document_id,chunk.revision,chunk.start,chunk.end,chunk.text))
+                db.execute(
+                    "INSERT INTO chunks VALUES (?,?,?,?,?,?)",
+                    (
+                        chunk.id,
+                        chunk.document_id,
+                        chunk.revision,
+                        chunk.start,
+                        chunk.end,
+                        chunk.text,
+                    ),
+                )
             self._bump_generation(db)
-            return {'id':document.id,'revision':revision,'changed':True}
+            return {"id": document.id, "revision": revision, "changed": True}
 
     def get_document(self, document_id, revision=None):
         identifier(document_id)
         if revision is not None and (type(revision) is not int or revision < 1):
             raise Invalid("Source revision must be a positive integer")
         with self.connect() as db:
-            row = db.execute("SELECT * FROM documents WHERE id=? AND deleted=0", (document_id,)).fetchone()
+            row = db.execute(
+                "SELECT * FROM documents WHERE id=? AND deleted=0", (document_id,)
+            ).fetchone()
             if not row:
                 raise Missing("Document is unavailable")
-            result = db.execute("SELECT r.*,d.updated_at FROM revisions r JOIN documents d ON d.id=r.document_id WHERE r.document_id=? AND r.revision=?", (document_id,revision or row['revision'])).fetchone()
+            result = db.execute(
+                "SELECT r.*,d.updated_at FROM revisions r JOIN documents d ON d.id=r.document_id WHERE r.document_id=? AND r.revision=?",
+                (document_id, revision or row["revision"]),
+            ).fetchone()
             if not result:
                 raise Missing("Source revision is unavailable")
             return dict(result)
 
     def list_documents(self):
         with self.connect() as db:
-            rows = db.execute("SELECT d.id,d.revision,d.updated_at,r.title,r.content_hash,length(r.text) AS characters FROM documents d JOIN revisions r ON r.document_id=d.id AND r.revision=d.revision WHERE d.deleted=0 ORDER BY d.id")
+            rows = db.execute(
+                "SELECT d.id,d.revision,d.updated_at,r.title,r.content_hash,length(r.text) AS characters FROM documents d JOIN revisions r ON r.document_id=d.id AND r.revision=d.revision WHERE d.deleted=0 ORDER BY d.id"
+            )
             return [dict(row) for row in rows]
 
     def chunks(self, document_id=None):
@@ -119,12 +164,20 @@ class Store:
             identifier(document_id)
             condition, params = " AND d.id=?", (document_id,)
         with self.connect() as db:
-            rows = db.execute("SELECT c.*,r.title FROM chunks c JOIN documents d ON d.id=c.document_id AND d.revision=c.revision JOIN revisions r ON r.document_id=c.document_id AND r.revision=c.revision WHERE d.deleted=0" + condition + " ORDER BY c.document_id,c.start", params)
+            rows = db.execute(
+                "SELECT c.*,r.title FROM chunks c JOIN documents d ON d.id=c.document_id AND d.revision=c.revision JOIN revisions r ON r.document_id=c.document_id AND r.revision=c.revision WHERE d.deleted=0"
+                + condition
+                + " ORDER BY c.document_id,c.start",
+                params,
+            )
             return [dict(row) for row in rows]
 
     def get_chunk(self, chunk_id):
         with self.connect() as db:
-            row = db.execute("SELECT c.*,r.title FROM chunks c JOIN documents d ON d.id=c.document_id AND d.revision=c.revision JOIN revisions r ON r.document_id=c.document_id AND r.revision=c.revision WHERE c.id=? AND d.deleted=0", (chunk_id,)).fetchone()
+            row = db.execute(
+                "SELECT c.*,r.title FROM chunks c JOIN documents d ON d.id=c.document_id AND d.revision=c.revision JOIN revisions r ON r.document_id=c.document_id AND r.revision=c.revision WHERE c.id=? AND d.deleted=0",
+                (chunk_id,),
+            ).fetchone()
             if not row:
                 raise Missing("Source passage changed or is unavailable")
             return dict(row)
@@ -134,12 +187,17 @@ class Store:
         if type(expected_revision) is not int or expected_revision < 1:
             raise Invalid("Expected revision must be a positive integer")
         with self.transaction() as db:
-            row = db.execute("SELECT * FROM documents WHERE id=?", (document_id,)).fetchone()
+            row = db.execute(
+                "SELECT * FROM documents WHERE id=?", (document_id,)
+            ).fetchone()
             if not row:
                 raise Missing("Document is unavailable")
-            if row['revision'] != expected_revision:
+            if row["revision"] != expected_revision:
                 raise Conflict("Document changed; reload before deleting")
-            if not row['deleted']:
-                db.execute("UPDATE documents SET deleted=1,updated_at=? WHERE id=?", (self.clock(),document_id))
+            if not row["deleted"]:
+                db.execute(
+                    "UPDATE documents SET deleted=1,updated_at=? WHERE id=?",
+                    (self.clock(), document_id),
+                )
                 self._bump_generation(db)
-            return {'id':document_id,'revision':expected_revision,'deleted':True}
+            return {"id": document_id, "revision": expected_revision, "deleted": True}
