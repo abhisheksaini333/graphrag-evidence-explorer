@@ -1,0 +1,30 @@
+{
+  "id": "aea84efffc37406b989e2dee86b5a7a1",
+  "mode": "community",
+  "question": "3f5f94d7a7bf73a4",
+  "generation": 30,
+  "status": "failed",
+  "max_calls": 1,
+  "max_tokens": 4096,
+  "created_at": 1790756936.1071181,
+  "result": null,
+  "error": "community_report_failed",
+  "owner": "cli",
+  "calls": [
+    {
+      "id": "eae6d0be64cb48a091d17398aa230ffb",
+      "run_id": "aea84efffc37406b989e2dee86b5a7a1",
+      "kind": "community_report",
+      "reserved_tokens": 555,
+      "status": "complete",
+      "response": {
+        "text": "{\n  \"title\": \"Kai maintains Quartz\",\n  \"summary\": \"Kai is a member of the company Quartz.\",\n  \"findings\": [\n    \"Kai is a member of the company Quartz.\"\n  ],\n  \"rating\": \"High\",\n  \"rating_explanation\": \"The information provided in this response is relevant to the topic of Kai maintaining Quartz, which indicates that Kai has a significant role within the company.\"\n}",
+        "input_tokens": 92,
+        "output_tokens": 90,
+        "latency_ms": 15883.3000829909,
+        "finish_reason": "stop"
+      },
+      "created_at": 1790756936.112246
+    }
+  ]
+}

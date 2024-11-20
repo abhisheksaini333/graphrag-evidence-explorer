@@ -1,0 +1,30 @@
+{
+  "method": "SIGSTOP/SIGKILL the actual indexing child after SQLite publication, wait for real lease expiry, run a fresh child",
+  "first_exit": -9,
+  "second_exit": 0,
+  "status": "complete",
+  "attempts": 2,
+  "first_passage_calls_before": [
+    {
+      "call_key": "embed:956c4f226e347bf26dc782cd60ab1e7e",
+      "status": "complete"
+    },
+    {
+      "call_key": "extract:956c4f226e347bf26dc782cd60ab1e7e",
+      "status": "complete"
+    }
+  ],
+  "first_passage_calls_after": [
+    {
+      "call_key": "embed:956c4f226e347bf26dc782cd60ab1e7e",
+      "status": "complete"
+    },
+    {
+      "call_key": "extract:956c4f226e347bf26dc782cd60ab1e7e",
+      "status": "complete"
+    }
+  ],
+  "passages": 2,
+  "claims": 2,
+  "completed_calls_repeated": false
+}

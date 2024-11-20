@@ -1,0 +1,10 @@
+{
+  "startup_seconds": 11.701420333003625,
+  "first_graph_seconds": 0.009257999947294593,
+  "health": {
+    "status": "ready",
+    "generation": 0,
+    "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1"
+  },
+  "nodes": 0
+}

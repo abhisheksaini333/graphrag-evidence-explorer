@@ -1,0 +1,26 @@
+{
+  "image": "graphrag-evidence-model:local",
+  "architecture": "Linux ARM64",
+  "torch": "2.3.0",
+  "configured_threads": 2,
+  "matrix_shape": [
+    1536,
+    1536
+  ],
+  "matrix_multiplications": 10,
+  "first_probe": {
+    "main_seconds": 0.6127079169964418,
+    "request_thread_seconds": 5.530015169992112
+  },
+  "repeat_probe": {
+    "request_without_local_reset_seconds": 5.207699961028993,
+    "request_with_local_reset_seconds": 0.5655968330102041
+  },
+  "actual_http_generation_before": {
+    "input_tokens": 45,
+    "output_tokens": 3,
+    "latency_ms": 60923.21252694819,
+    "finish_reason": "deadline"
+  },
+  "conclusion": "Apply torch.set_num_threads on the actual inference thread; reading the configured count alone did not establish OpenMP behavior"
+}
