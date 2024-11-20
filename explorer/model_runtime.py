@@ -13,7 +13,11 @@ class ModelRuntime:
         if type(threads) is not int or not 1 <= threads <= 8:
             raise Invalid("Choose 1–8 CPU threads")
         self.torch = torch
+        self.threads = threads
         torch.set_num_threads(threads)
+        # Use the measured reference CPU path, including on Linux ARM.
+        # Platform-specific oneDNN packing can have a different memory profile.
+        torch.backends.mkldnn.enabled = False
         self.manifest = model_manifest()
         generation = self.manifest["generation"]
         embedding = self.manifest["embedding"]
@@ -36,11 +40,16 @@ class ModelRuntime:
             "model_revision": self.manifest["generation"]["revision"],
             "embedding_revision": self.manifest["embedding"]["revision"],
             "embedding_dimensions": 384,
+            "cpu_backend": "pytorch-reference",
+            "cpu_threads": self.threads,
+            "generation_dtype": "float32",
         }
 
     def generate(self, prompt, max_new_tokens):
         from transformers import StoppingCriteria, StoppingCriteriaList
 
+        # OpenMP thread settings must be applied on the HTTP inference thread.
+        self.torch.set_num_threads(self.threads)
         start = time.monotonic()
         deadline = start + 60
 
@@ -84,6 +93,7 @@ class ModelRuntime:
         }
 
     def embed(self, texts):
+        self.torch.set_num_threads(self.threads)
         start = time.monotonic()
         encoded = self.embedding_tokenizer(
             texts, padding=True, truncation=False, return_tensors="pt"

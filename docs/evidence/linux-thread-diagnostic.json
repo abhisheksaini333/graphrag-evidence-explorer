@@ -22,5 +22,5 @@
     "latency_ms": 60923.21252694819,
     "finish_reason": "deadline"
   },
-  "conclusion": "Apply torch.set_num_threads on the actual inference thread; reading the configured count alone did not establish OpenMP behavior"
+  "conclusion": "Per-request thread configuration improved this microbenchmark; it did not alone fix full model inference. Full packaging also required a larger memory limit, a verified reference CPU backend and a dedicated integration resource window."
 }

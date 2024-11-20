@@ -1,0 +1,23 @@
+{
+  "requests": 2,
+  "peak_memory": 3586752512,
+  "max_swap": 0,
+  "results": [
+    {
+      "text": "[{\"subject\": \"Iris\", \"relation\": \"owns\", \"object\": \"Lumen\"}, {\"subject\": \"Lumen\", \"relation\": \"depends\", \"object\": \"River\"}]",
+      "input_tokens": 76,
+      "output_tokens": 42,
+      "latency_ms": 27281.920596025884,
+      "finish_reason": "stop"
+    },
+    {
+      "text": "[{\"subject\": \"Mira\", \"relation\": \"owns\", \"object\": \"Atlas\"}, {\"subject\": \"Atlas\", \"relation\": \"depends\", \"object\": \"Boreal\"}]",
+      "input_tokens": 76,
+      "output_tokens": 41,
+      "latency_ms": 50955.080481944606,
+      "finish_reason": "stop"
+    }
+  ],
+  "method": "Actual LinuxARM Torch2.3 float32 CPU generation with mkldnn disabled, 2 OpenMP/OpenBLAS threads, 4GiB container; two original extraction prompts in one process",
+  "limits": "Not a controlled performance speedup claim. Original enabled-backend profiling terminated137 during profiler postprocessing; full concurrent stack had OOM failures. Native comparison results remain separate from packaged resource measurements."
+}
