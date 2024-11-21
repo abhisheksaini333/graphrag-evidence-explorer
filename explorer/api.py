@@ -1,5 +1,5 @@
 """Loopback operator API with same-origin mutations and bounded query admission."""
-import argparse, json, logging, mimetypes, threading
+import argparse, json, logging, mimetypes, re, threading
 from http.server import BaseHTTPRequestHandler
 from .runtime_control import BoundedHTTPServer
 from pathlib import Path
@@ -81,22 +81,24 @@ def create_server(store, model, host="127.0.0.1", port=8089, static=None):
             if len(hosts) != 1:
                 return False
             try:
-                target = urlsplit("http://" + hosts[0])
-                if (
-                    target.hostname not in ("127.0.0.1", "localhost", "graph-api")
-                    or target.username
-                    or target.path
+                authority = re.fullmatch(
+                    r"(?:127\.0\.0\.1|localhost|graph-api)(?::([0-9]{1,5}))?",
+                    hosts[0],
+                )
+                if not authority or (
+                    authority.group(1) and not 1 <= int(authority.group(1)) <= 65535
                 ):
                     return False
-                origin = self.headers.get("Origin")
-                if origin:
+                origins = self.headers.get_all("Origin") or []
+                if len(origins) > 1:
+                    return False
+                if origins:
                     allowed = {
-                        "http://127.0.0.1:" + str(self.server.server_port),
-                        "http://localhost:" + str(self.server.server_port),
+                        "http://" + hosts[0],
                         "http://127.0.0.1:5189",
                         "http://localhost:5189",
                     }
-                    if origin not in allowed:
+                    if origins[0] not in allowed:
                         return False
                 return self.headers.get("Sec-Fetch-Site") not in ("cross-site",)
             except ValueError:

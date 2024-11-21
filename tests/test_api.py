@@ -76,6 +76,38 @@ class APITests(unittest.TestCase):
         )
         self.assertEqual(self.request("POST", "/api/documents", [])[0], 422)
 
+    def test_same_origin_uses_the_public_host_port(self):
+        status, _ = self.request(
+            "POST",
+            "/api/documents",
+            {"id": "mapped", "title": "Mapped port", "text": "Mira owns Atlas."},
+            headers={"Host": "127.0.0.1:18089", "Origin": "http://127.0.0.1:18089"},
+        )
+        self.assertEqual(status, 201)
+        self.assertEqual(
+            self.request(
+                "GET",
+                "/api/health",
+                headers={"Host": "127.0.0.1:18089", "Origin": "http://127.0.0.1:18090"},
+            )[0],
+            403,
+        )
+
+    def test_malformed_public_host_authorities_are_rejected(self):
+        for host in (
+            "127.0.0.1:invalid",
+            "127.0.0.1:65536",
+            "127.0.0.1?query",
+            "127.0.0.1#fragment",
+            "user@127.0.0.1",
+            "127.0.0.1:",
+        ):
+            with self.subTest(host=host):
+                self.assertEqual(
+                    self.request("GET", "/api/health", headers={"Host": host})[0],
+                    403,
+                )
+
     def test_budget_validation_does_not_leave_a_job_after_bad_request(self):
         self.request(
             "POST",
