@@ -1,0 +1,13 @@
+.git
+.venv
+.model-venv
+.env
+.data
+.models
+.deps
+**/node_modules
+**/dist
+**/__pycache__
+**/test-results
+**/playwright-report
+*.sqlite*

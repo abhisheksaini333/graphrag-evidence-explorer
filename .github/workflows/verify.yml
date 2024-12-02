@@ -1,0 +1,19 @@
+name: Verify evidence workspace
+on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  native-linux:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Build pinned application and frontend
+        run: docker build --platform linux/amd64 -t evidence-workspace:test .
+      - name: Verify native Linux domain and actual framework integration
+        run: docker run --rm --read-only --tmpfs /tmp:rw,size=512m -e NUMBA_CACHE_DIR=/tmp/numba evidence-workspace:test python -m unittest discover -s tests
+      - name: Verify installed dependency consistency
+        run: docker run --rm evidence-workspace:test python -m pip check

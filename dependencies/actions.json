@@ -1,0 +1,9 @@
+[
+  {
+    "repository": "actions/checkout",
+    "tag": "v4.1.1",
+    "sha": "b4ffde65f46336ab88eb53be808477a3936bae11",
+    "published_at": "2023-10-17T15:53:17Z",
+    "source": "https://github.com/actions/checkout/releases/tag/v4.1.1"
+  }
+]

@@ -8,7 +8,7 @@ The workspace includes versioned documents, durable indexing, an interactive ent
 
 ## Run the workspace
 
-The supplied Compose profile targets an Apple Silicon workstation: the model container runs Linux ARM64, while the original graph runtime runs Linux AMD64 through Docker emulation. Allow approximately 7 GiB for the stack and additional space for images and immutable model files. The application uses exact cosine search over SQLite embeddings; it does not depend on Lance native vector execution under emulation.
+The supplied Compose profile targets an Apple Silicon workstation: the model container runs Linux ARM64, while the original graph runtime runs Linux AMD64 through Docker emulation. Allow approximately 8 GiB for the stack and additional space for images and immutable model files. The application uses exact cosine search over SQLite embeddings; it does not depend on Lance native vector execution under emulation.
 
 ```sh
 python3 scripts/fetch_models.py .models

@@ -1,0 +1,13 @@
+FROM python:3.10.11-slim-bullseye@sha256:fd86924ba14682eb11a3c244f60a35b5dfe3267cbf26d883fb5c14813ce926f1
+ARG TARGETARCH
+RUN test "$TARGETARCH" = arm64
+WORKDIR /app
+COPY model-linux-arm64.lock ./
+RUN pip install --no-cache-dir --no-deps --require-hashes -r model-linux-arm64.lock && pip check
+COPY explorer/ explorer/
+COPY dependencies/models.json dependencies/models.json
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 TOKENIZERS_PARALLELISM=false HF_HUB_OFFLINE=1 HF_HOME=/tmp/huggingface OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2
+USER 65532:65532
+EXPOSE 8090
+HEALTHCHECK --interval=15s --timeout=5s --start-period=120s CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=3)"
+CMD ["python","-m","explorer.model_service","--host","0.0.0.0","--models","/models","--threads","2"]

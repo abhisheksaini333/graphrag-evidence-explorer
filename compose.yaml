@@ -1,0 +1,55 @@
+name: graphrag-evidence-explorer
+services:
+  graph-model:
+    build:
+      context: .
+      dockerfile: Dockerfile.model
+    platform: linux/arm64
+    image: graphrag-evidence-model:local
+    volumes:
+      - ${GRAPH_MODELS:-./.models}:/models:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2
+    mem_limit: 4g
+  graph-api:
+    build: .
+    platform: linux/amd64
+    image: graphrag-evidence-api:local
+    ports:
+      - 127.0.0.1:${EXPLORER_PORT:-8089}:8089
+    volumes:
+      - graph-data:/data
+    depends_on:
+      graph-model:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 1536m
+  graph-worker:
+    image: graphrag-evidence-api:local
+    platform: linux/amd64
+    command: [python,-m,explorer.worker,--database,/data/corpus.sqlite,--model-url,http://graph-model:8090]
+    healthcheck:
+      disable: true
+    volumes:
+      - graph-data:/data
+    depends_on:
+      graph-api:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 1536m
+volumes:
+  graph-data:
