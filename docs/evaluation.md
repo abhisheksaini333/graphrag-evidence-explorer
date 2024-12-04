@@ -26,6 +26,14 @@ A real child indexing process was stopped and killed after publishing its first 
 
 A live SQLite snapshot passed integrity and foreign-key checks. A separate restore exposed the same twelve documents, twelve claims and twelve passages without changing the original backup. Native API startup warmed scientific imports before reporting readiness; first graph access then took0.009 seconds after an11.701-second startup.
 
+## Packaged application
+
+The final Compose run completed all twelve indexing jobs in 200.2 seconds, exposing seventeen entities, twelve relationships and five communities. The model ran natively on Linux ARM64 with the explicit reference CPU backend and two threads; the original graph runtime ran on Linux AMD64 through Docker emulation. Both images run as UID 65532 and their installed versions and application source hashes matched the checked lockfiles and source tree.
+
+Three browser journeys passed in 19.2 seconds: source inspection and correction/restoration, document creation/cancellation/deletion, and an actual model query with desktop/mobile evidence inspection. The public port was changed to 8098 to verify the deployment override. The query retrieved six visible passages in 13.02 seconds, but its answer failed the output contract and was withheld. This confirms failure presentation, not successful answer generation.
+
+All 71 Python contracts passed in the read-only graph container, the three frontend contracts passed during its build, and the installed dependency consistency check passed. Earlier low-memory and competing-model attempts failed. The successful profile assigns 4 GiB to the model and 1.5 GiB each to API and worker, with other heavy model processes stopped; it is not a concurrency or production-capacity benchmark. See [the packaged acceptance record](evidence/container-acceptance.json) and the [mobile workspace](images/workspace-mobile.png).
+
 ## Read the evidence
 
 The JSON records in [evidence](evidence/) contain the original per-case comparison, repeated comparison, actual community output, process-recovery result and restore checks. Raw model failures are retained rather than counted as successful answers. Browser and container proofs test packaged behavior; hosted CI separately tests the native Linux application and frontend build.

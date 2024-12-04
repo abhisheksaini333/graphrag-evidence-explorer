@@ -6,6 +6,8 @@ The workspace includes versioned documents, durable indexing, an interactive ent
 
 **Evidence exploration works; generated answers remain experimental.** On twelve owned questions, vector and local retrieval achieved 0.95 mean required-document recall, versus 0.70 for global retrieval. None of the three modes produced an answer that passed the output contract. Failed answers are withheld while their retrieved passages remain inspectable. Read the [measured results](docs/evaluation.md) before relying on model output.
 
+![Evidence workspace with entity graph and original source passages](docs/images/workspace-desktop.png)
+
 ## Run the workspace
 
 The supplied Compose profile targets an Apple Silicon workstation: the model container runs Linux ARM64, while the original graph runtime runs Linux AMD64 through Docker emulation. Allow approximately 8 GiB for the stack and additional space for images and immutable model files. The application uses exact cosine search over SQLite embeddings; it does not depend on Lance native vector execution under emulation.

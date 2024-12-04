@@ -1,0 +1,306 @@
+{
+  "profile": "Apple M3 Pro; Docker Linux ARM64 model and emulated Linux AMD64 graph API/worker",
+  "limits": {
+    "model_memory_gib": 4,
+    "api_memory_mib": 1536,
+    "worker_memory_mib": 1536,
+    "model_cpus": 2,
+    "api_cpus": 1,
+    "worker_cpus": 1
+  },
+  "indexing": {
+    "seconds": 200.20378054096363,
+    "health": {
+      "status": "ready",
+      "generation": 24,
+      "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1"
+    },
+    "jobs": [
+      {
+        "id": "0363072b6f0f42053fcdd03d1a8fea73",
+        "document_id": "summit",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.8678129,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1170,
+          "actual_tokens": 129,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "b382edf5657f8a07cb976f607a1f9c6d",
+        "document_id": "storm",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.8573706,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1140,
+          "actual_tokens": 124,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "f2d6ae7a74a6ee97c3c6618a04b472a7",
+        "document_id": "restriction",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.8430433,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1248,
+          "actual_tokens": 122,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "cb5f2e8bcd54a821c4aa0f88afb3969b",
+        "document_id": "harbor-alternate",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.8262038,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1233,
+          "actual_tokens": 139,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "b8440ea08cbfe449da1043c9f81f45da",
+        "document_id": "quartz",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.8078787,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1158,
+          "actual_tokens": 109,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "2edff19940d780b3713c8b33f94bc06c",
+        "document_id": "meadow",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.7851064,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1128,
+          "actual_tokens": 108,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "2b457603bef626f07b9c374db4c97b59",
+        "document_id": "cedar",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.760193,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1152,
+          "actual_tokens": 128,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "6550eb4e9186c1c591195623fe112304",
+        "document_id": "harbor",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.7395594,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1146,
+          "actual_tokens": 129,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "9ff20d30c5a2d96983ac23b6fca94f12",
+        "document_id": "birch",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.7079115,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1131,
+          "actual_tokens": 131,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "005f6194cdc03eda15cb8925fec7f52a",
+        "document_id": "maple",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.6796303,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1167,
+          "actual_tokens": 122,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "682b726bc3ec12d3ab5cdaa8d12be4a6",
+        "document_id": "river",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 2,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.6600876,
+        "error": null,
+        "usage": {
+          "calls": 3,
+          "reserved_tokens": 1137,
+          "actual_tokens": 126,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      },
+      {
+        "id": "c6a3de3bda7ccfccc8be88f087fd8476",
+        "document_id": "lumen",
+        "revision": 1,
+        "profile": "graphrag-0.1.1:qwen2-c291d6fc:minilm-7dbbc903:triples-v1",
+        "status": "complete",
+        "attempt": 3,
+        "worker": "index-80b043b18864",
+        "lease_until": 0.0,
+        "created_at": 1790762825.6072054,
+        "error": null,
+        "usage": {
+          "calls": 4,
+          "reserved_tokens": 1674,
+          "actual_tokens": 131,
+          "completed_calls": 2,
+          "max_calls": 32,
+          "max_tokens": 65536
+        }
+      }
+    ],
+    "entities": 17,
+    "relationships": 12,
+    "communities": 5,
+    "generation": 24
+  },
+  "browser": {
+    "passed": 3,
+    "seconds": 19.2,
+    "public_port": 8098,
+    "actual_query": {
+      "question": "Who owns Lumen?",
+      "mode": "vector",
+      "status": "failed",
+      "error": "answer_contract_failed",
+      "seconds": 13.020062922965735,
+      "visible_passages": 6,
+      "answer": null
+    }
+  },
+  "contracts": {
+    "python_tests": 71,
+    "container_seconds": 41.03,
+    "frontend_contracts": 3,
+    "dependency_check": "No broken requirements found",
+    "images": {
+      "api": {
+        "uid": 65532,
+        "architecture": "x86_64",
+        "python": "3.10.11",
+        "verified_pins": 122,
+        "image_id": "sha256:11496978a95a0326d15d8e14939dcf476a026f4b44a0f8e78a5f26249e976501"
+      },
+      "model": {
+        "uid": 65532,
+        "architecture": "aarch64",
+        "python": "3.10.11",
+        "verified_pins": 23,
+        "image_id": "sha256:5259144f2460ef19f742a7da31eb7496c5d6eb79a043a4d9d1d88e799b8b11ab"
+      }
+    }
+  },
+  "limitations": [
+    "Initial resource-constrained runs failed and are retained in development evidence; this profile uses a4GiB reference CPU model with competing heavy models stopped.",
+    "Packaged browser acceptance verifies evidence and withheld-answer behavior, not answer correctness or a new retrieval benchmark.",
+    "The original and repeated comparison both produced zero accepted answers."
+  ]
+}
