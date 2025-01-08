@@ -102,7 +102,11 @@ def check_answer(raw, allowed):
         or not isinstance(value["citations"], list)
     ):
         raise Invalid("Answer requires text and a citation array")
-    if len(value["answer"]) > 2000 or any(
+    try:
+        value["answer"].encode("utf-8")
+    except UnicodeError as exc:
+        raise Invalid("Answer must be valid UTF-8 text") from exc
+    if not value["answer"].strip() or len(value["answer"]) > 2000 or any(
         not isinstance(c, str) for c in value["citations"]
     ):
         raise Invalid("Answer exceeds citation contract")
