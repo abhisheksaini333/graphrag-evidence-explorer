@@ -8,6 +8,9 @@ from .evidence import normalized_vector
 def retrieve(
     snapshot, question, mode, query_vector, limit=6, character_budget=2400, graph=None
 ):
+    if (type(limit) is not int or not 1 <= limit <= 50
+            or type(character_budget) is not int or not 1 <= character_budget <= 20000):
+        raise Invalid("Retrieval count and character budget must be bounded integers")
     if mode not in ("vector", "local", "global"):
         raise Invalid("Unknown retrieval mode")
     query_vector = normalized_vector(query_vector)
