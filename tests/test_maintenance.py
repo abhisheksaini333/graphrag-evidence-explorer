@@ -19,3 +19,13 @@ class Maintenance(unittest.TestCase):
             for value in (True,0,-1,1.5,'3',20001):
                 with self.assertRaises(Invalid): retrieve(snapshot,'question','vector',vector,**{key:value})
         self.assertEqual(retrieve(snapshot,'question','vector',vector)['passages'],[])
+
+    def test_gre03(self):
+        from explorer.model_client import ModelClient
+        from explorer.domain import Invalid
+        for url in ('file:///tmp/model','http://user:pass@localhost','http://localhost/path','http://localhost?key=x','http://localhost#secret','http://localhost:99999',None,' http://localhost'):
+            with self.assertRaises(Invalid): ModelClient(url)
+        for timeout in (True,0,'65',float('nan'),float('inf'),301):
+            with self.assertRaises(Invalid): ModelClient(timeout=timeout)
+        self.assertEqual(ModelClient('http://models:8090/').url,'http://models:8090')
+        self.assertEqual(ModelClient('https://model.example').timeout,65)
