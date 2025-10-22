@@ -49,7 +49,10 @@ class ModelClient:
     def health(self):
         try:
             with urllib.request.urlopen(self.url + "/health", timeout=5) as response:
-                return json.loads(response.read(65536))
+                raw = response.read(65537)
+                if len(raw) > 65536:
+                    raise ModelUnavailable("Model health exceeds the bounded contract")
+                return json.loads(raw)
         except (OSError, ValueError) as exc:
             raise ModelUnavailable("Local model is not ready") from exc
 

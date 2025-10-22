@@ -29,3 +29,12 @@ class Maintenance(unittest.TestCase):
             with self.assertRaises(Invalid): ModelClient(timeout=timeout)
         self.assertEqual(ModelClient('http://models:8090/').url,'http://models:8090')
         self.assertEqual(ModelClient('https://model.example').timeout,65)
+
+    def test_gre04(self):
+        import io
+        from explorer.model_client import ModelClient, ModelUnavailable
+        for payload in (b'{"ready":true}'+b' '*65536,b'{"ready":true}'):
+            with patch('urllib.request.urlopen',return_value=io.BytesIO(payload)):
+                if len(payload)>65536:
+                    with self.assertRaises(ModelUnavailable): ModelClient().health()
+                else: self.assertEqual(ModelClient().health(),dict(ready=True))
