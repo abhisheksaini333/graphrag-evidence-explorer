@@ -5,6 +5,7 @@ from urllib.parse import urlsplit
 import urllib.error
 import urllib.request
 from .domain import Invalid
+from .json_contract import strict_json
 
 
 class ModelUnavailable(Invalid):
@@ -40,7 +41,7 @@ class ModelClient:
                     raise ModelUnavailable(
                         "Model response exceeds the bounded contract"
                     )
-                return json.loads(raw)
+                return strict_json(raw)
         except (OSError, ValueError) as exc:
             raise ModelUnavailable(
                 "Local model request failed; inspect model readiness and request limits"
@@ -52,7 +53,7 @@ class ModelClient:
                 raw = response.read(65537)
                 if len(raw) > 65536:
                     raise ModelUnavailable("Model health exceeds the bounded contract")
-                return json.loads(raw)
+                return strict_json(raw)
         except (OSError, ValueError) as exc:
             raise ModelUnavailable("Local model is not ready") from exc
 

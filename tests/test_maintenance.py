@@ -38,3 +38,14 @@ class Maintenance(unittest.TestCase):
                 if len(payload)>65536:
                     with self.assertRaises(ModelUnavailable): ModelClient().health()
                 else: self.assertEqual(ModelClient().health(),dict(ready=True))
+
+    def test_gre05(self):
+        import io
+        from explorer.model_client import ModelClient, ModelUnavailable
+        for raw in (b'{"ready":false,"ready":true}',b'{"score":NaN}'):
+            for method in ('health','generate','embed'):
+                with patch('urllib.request.urlopen',return_value=io.BytesIO(raw)):
+                    with self.assertRaises(ModelUnavailable):
+                        getattr(ModelClient(),method)(*([] if method=='health' else ['input']))
+        with patch('urllib.request.urlopen',return_value=io.BytesIO(b'{"ready":true}')):
+            self.assertEqual(ModelClient().health(),dict(ready=True))
