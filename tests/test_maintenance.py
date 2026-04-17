@@ -49,3 +49,15 @@ class Maintenance(unittest.TestCase):
                         getattr(ModelClient(),method)(*([] if method=='health' else ['input']))
         with patch('urllib.request.urlopen',return_value=io.BytesIO(b'{"ready":true}')):
             self.assertEqual(ModelClient().health(),dict(ready=True))
+
+    def test_gre06(self):
+        from explorer.store import Store
+        from explorer.domain import DocumentInput, Invalid
+        from explorer.jobs import JobQueue
+        with tempfile.TemporaryDirectory() as root:
+            store=Store(pathlib.Path(root)/'db');store.put_document(DocumentInput('doc','Title','Text'))
+            queue=JobQueue(store)
+            for budget in ([],[1],[1,100,3],1,{},'12'):
+                with self.assertRaises(Invalid): queue.enqueue('doc','profile',budget)
+                self.assertEqual(queue.list(),[])
+            self.assertEqual(queue.enqueue('doc','profile',(1,100))['status'],'queued')

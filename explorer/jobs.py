@@ -32,6 +32,8 @@ class JobQueue:
     def enqueue(self, document_id, profile, budget=None):
         bounded_text(profile, "Index profile", 160)
         if budget is not None:
+            if not isinstance(budget, (tuple, list)) or len(budget) != 2:
+                raise Invalid("Index budget requires call and token limits")
             from .budget import ModelBudget, positive_int
 
             positive_int(budget[0], 128, "Call budget")
