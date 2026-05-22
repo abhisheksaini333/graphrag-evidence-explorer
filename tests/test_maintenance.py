@@ -61,3 +61,14 @@ class Maintenance(unittest.TestCase):
                 with self.assertRaises(Invalid): queue.enqueue('doc','profile',budget)
                 self.assertEqual(queue.list(),[])
             self.assertEqual(queue.enqueue('doc','profile',(1,100))['status'],'queued')
+
+    def test_gre07(self):
+        from explorer.store import Store
+        from explorer.query_runs import QueryRuns
+        from explorer.domain import Invalid
+        with tempfile.TemporaryDirectory() as root:
+            runs=QueryRuns(Store(pathlib.Path(root)/'db'))
+            for generation in (False,0.0,-1,'0',None):
+                with self.assertRaises(Invalid): runs.start('vector','Question?',generation)
+                self.assertEqual(runs.list(),[])
+            self.assertEqual(runs.start('vector','Question?',0)['generation'],0)

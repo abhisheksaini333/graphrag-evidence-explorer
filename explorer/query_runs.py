@@ -41,6 +41,8 @@ class QueryRuns:
         if mode not in ("vector", "local", "global", "community"):
             raise Invalid("Choose vector, local or global search")
         bounded_text(question, "Question", 500)
+        if type(generation) is not int or generation < 0:
+            raise Invalid("Corpus generation must be a nonnegative integer")
         if (
             type(max_calls) is not int
             or not 1 <= max_calls <= 8
