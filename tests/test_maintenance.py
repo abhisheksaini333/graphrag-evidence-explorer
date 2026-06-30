@@ -72,3 +72,15 @@ class Maintenance(unittest.TestCase):
                 with self.assertRaises(Invalid): runs.start('vector','Question?',generation)
                 self.assertEqual(runs.list(),[])
             self.assertEqual(runs.start('vector','Question?',0)['generation'],0)
+
+    def test_gre08(self):
+        from explorer.store import Store
+        from explorer.query_runs import QueryRuns
+        from explorer.domain import Invalid
+        with tempfile.TemporaryDirectory() as root:
+            runs=QueryRuns(Store(pathlib.Path(root)/'db'));run=runs.start('vector','Question?',0)
+            for kind in ('unknown','',None,3,[]):
+                with self.assertRaises(Invalid): runs.reserve(run['id'],kind,1)
+                self.assertEqual(runs.get(run['id'])['calls'],[])
+            for kind in ('embed','generate','community_report'): runs.reserve(run['id'],kind,1)
+            self.assertEqual(len(runs.get(run['id'])['calls']),3)

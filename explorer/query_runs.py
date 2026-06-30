@@ -76,6 +76,8 @@ class QueryRuns:
         return self.get(run_id)
 
     def reserve(self, run_id, kind, tokens):
+        if not isinstance(kind, str) or kind not in {"embed", "generate", "community_report"}:
+            raise Invalid("Unknown query model operation")
         if type(tokens) is not int or tokens < 1:
             raise Invalid("Token reservation must be positive")
         with self.store.transaction() as db:
