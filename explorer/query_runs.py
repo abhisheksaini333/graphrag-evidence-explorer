@@ -110,7 +110,9 @@ class QueryRuns:
             raise Invalid("Model response exceeds query trace limit")
         with self.store.transaction() as db:
             updated = db.execute(
-                "UPDATE query_calls SET status='complete',response=? WHERE id=? AND status='pending'",
+                "UPDATE query_calls SET status='complete',response=? WHERE id=? AND status='pending' "
+                "AND EXISTS (SELECT 1 FROM query_runs r JOIN metadata m ON m.key='generation' "
+                "WHERE r.id=query_calls.run_id AND r.status='running' AND r.generation=m.value)",
                 (raw, call_id),
             ).rowcount
             if updated != 1:

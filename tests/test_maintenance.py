@@ -84,3 +84,22 @@ class Maintenance(unittest.TestCase):
                 self.assertEqual(runs.get(run['id'])['calls'],[])
             for kind in ('embed','generate','community_report'): runs.reserve(run['id'],kind,1)
             self.assertEqual(len(runs.get(run['id'])['calls']),3)
+
+    def test_gre09(self):
+        from explorer.store import Store, Conflict
+        from explorer.query_runs import QueryRuns
+        from explorer.domain import DocumentInput
+        with tempfile.TemporaryDirectory() as root:
+            store=Store(pathlib.Path(root)/'db');runs=QueryRuns(store)
+            run=runs.start('vector','Question?',0);call=runs.reserve(run['id'],'generate',1)
+            runs.finish(run['id'],dict(answer='complete'))
+            with self.assertRaises(Conflict): runs.complete_call(call,dict(text='late'))
+            self.assertEqual(runs.get(run['id'])['calls'][0]['status'],'pending')
+            run=runs.start('vector','Question?',0);call=runs.reserve(run['id'],'generate',1)
+            store.put_document(DocumentInput('doc','Title','New source'))
+            with self.assertRaises(Conflict): runs.complete_call(call,dict(text='old source'))
+            with store.connect() as db:
+                self.assertIsNone(db.execute('SELECT response FROM query_calls WHERE id=?',(call,)).fetchone()[0])
+            run=runs.start('vector','Question?',store.generation());call=runs.reserve(run['id'],'generate',1)
+            runs.complete_call(call,dict(text='current'))
+            self.assertEqual(runs.get(run['id'])['calls'][0]['status'],'complete')
