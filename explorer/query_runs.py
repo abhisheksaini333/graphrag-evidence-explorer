@@ -120,6 +120,10 @@ class QueryRuns:
 
     def finish(self, run_id, result, error=None):
         raw = json.dumps(result, allow_nan=False)
+        if len(raw.encode()) > 200000:
+            raise Invalid("Query result exceeds durable history limit")
+        if error is not None:
+            bounded_text(error, "Error code", 80)
         with self.store.transaction() as db:
             row = db.execute(
                 "SELECT * FROM query_runs WHERE id=?", (run_id,)

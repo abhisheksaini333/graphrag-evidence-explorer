@@ -103,3 +103,14 @@ class Maintenance(unittest.TestCase):
             run=runs.start('vector','Question?',store.generation());call=runs.reserve(run['id'],'generate',1)
             runs.complete_call(call,dict(text='current'))
             self.assertEqual(runs.get(run['id'])['calls'][0]['status'],'complete')
+
+    def test_gre10(self):
+        from explorer.store import Store
+        from explorer.query_runs import QueryRuns
+        from explorer.domain import Invalid
+        with tempfile.TemporaryDirectory() as root:
+            runs=QueryRuns(Store(pathlib.Path(root)/'db'));run=runs.start('vector','Question?',0)
+            for result,error in (({'answer':'a'*200001},None),({},''),({},3),({},'a'*81),({},'\ud800')):
+                with self.assertRaises(Invalid): runs.finish(run['id'],result,error)
+                self.assertEqual(runs.get(run['id'])['status'],'running')
+            self.assertEqual(runs.finish(run['id'],None,'model_unavailable')['status'],'failed')
